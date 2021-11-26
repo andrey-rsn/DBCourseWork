@@ -19,9 +19,18 @@ namespace KyrsovayaRabota
     /// </summary>
     public partial class Det : Window
     {
-        public Det()
+        private readonly string _TrType;
+        private readonly float _PsiP;
+        private readonly float _N;
+        private readonly float _bo;
+        public Det(string trType, float psiP, float n, float bo)
         {
             InitializeComponent();
+            _TrType = trType;
+            _PsiP = psiP;
+            _N = n;
+            _bo = bo;
         }
+
     }
 }

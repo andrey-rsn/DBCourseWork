@@ -26,7 +26,20 @@ namespace KyrsovayaRabota
 
         private void AddDetButton_Click(object sender, RoutedEventArgs e)
         {
-
+            
+            if(this.PsiPTextBox.Text==""||this.TrTypeCombobox.Text==""||this.boTextBox.Text == ""|| this.NTextBox.Text == "")
+            {
+                MessageBox.Show("Заполните обязательные параметры", "Внимание!");
+            }
+            else
+            {
+                Det taskWindow = new Det();
+                taskWindow.CodeDet1TextBox.Text = Guid.NewGuid().ToString();
+                taskWindow.CodeDet2TextBox.Text = Guid.NewGuid().ToString();
+                taskWindow.Show();
+                this.Hide();
+            }
+            
         }
     }
 }
