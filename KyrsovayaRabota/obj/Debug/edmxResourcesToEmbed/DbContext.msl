@@ -1,0 +1,93 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="KyrsovayaRabotaDBModelStoreContainer" CdmEntityContainer="KyrsovayaRabotaDBEntities1">
+    <EntitySetMapping Name="DET">
+      <EntityTypeMapping TypeName="IsTypeOf(KyrsovayaRabotaDBModel.DET)">
+        <MappingFragment StoreEntitySet="DET">
+          <ScalarProperty Name="CodeDET" ColumnName="CodeDET" />
+          <ScalarProperty Name="NameDET" ColumnName="NameDET" />
+          <ScalarProperty Name="b" ColumnName="b" />
+          <ScalarProperty Name="y" ColumnName="y" />
+          <ScalarProperty Name="h" ColumnName="h" />
+          <ScalarProperty Name="da" ColumnName="da" />
+          <ScalarProperty Name="a1" ColumnName="a1" />
+          <ScalarProperty Name="a" ColumnName="a" />
+          <ScalarProperty Name="a_min" ColumnName="a_min" />
+          <ScalarProperty Name="a_max" ColumnName="a_max" />
+          <ScalarProperty Name="F_pred" ColumnName="F_pred" />
+          <ScalarProperty Name="n1" ColumnName="n1" />
+          <ScalarProperty Name="n2" ColumnName="n2" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SE">
+      <EntityTypeMapping TypeName="IsTypeOf(KyrsovayaRabotaDBModel.SE)">
+        <MappingFragment StoreEntitySet="SE">
+          <ScalarProperty Name="CodeSE" ColumnName="CodeSE" />
+          <ScalarProperty Name="NameSE" ColumnName="NameSE" />
+          <ScalarProperty Name="e" ColumnName="e" />
+          <ScalarProperty Name="del_tk" ColumnName="del_tk" />
+          <ScalarProperty Name="m" ColumnName="m" />
+          <ScalarProperty Name="z1" ColumnName="z1" />
+          <ScalarProperty Name="C1" ColumnName="C1" />
+          <ScalarProperty Name="PsiP" ColumnName="PsiP" />
+          <ScalarProperty Name="Ip" ColumnName="Ip" />
+          <ScalarProperty Name="q" ColumnName="q" />
+          <ScalarProperty Name="z0" ColumnName="z0" />
+          <ScalarProperty Name="z2" ColumnName="z2" />
+          <ScalarProperty Name="TrType" ColumnName="TrType" />
+          <ScalarProperty Name="bo" ColumnName="bo" />
+          <ScalarProperty Name="br" ColumnName="br" />
+          <ScalarProperty Name="N" ColumnName="N" />
+          <ScalarProperty Name="F_okr" ColumnName="F_okr" />
+          <ScalarProperty Name="u" ColumnName="u" />
+          <ScalarProperty Name="DET_id" ColumnName="DET_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Table_1">
+      <EntityTypeMapping TypeName="IsTypeOf(KyrsovayaRabotaDBModel.Table_1)">
+        <MappingFragment StoreEntitySet="Table_1">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="m" ColumnName="m" />
+          <ScalarProperty Name="TrType" ColumnName="TrType" />
+          <ScalarProperty Name="Ip" ColumnName="Ip" />
+          <ScalarProperty Name="q" ColumnName="q" />
+          <ScalarProperty Name="e" ColumnName="e" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Table_2">
+      <EntityTypeMapping TypeName="IsTypeOf(KyrsovayaRabotaDBModel.Table_2)">
+        <MappingFragment StoreEntitySet="Table_2">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="m" ColumnName="m" />
+          <ScalarProperty Name="n1_l" ColumnName="n1_l" />
+          <ScalarProperty Name="n1_h" ColumnName="n1_h" />
+          <ScalarProperty Name="z1" ColumnName="z1" />
+          <ScalarProperty Name="is_suitable" ColumnName="is_suitable" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Table_3">
+      <EntityTypeMapping TypeName="IsTypeOf(KyrsovayaRabotaDBModel.Table_3)">
+        <MappingFragment StoreEntitySet="Table_3">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="m" ColumnName="m" />
+          <ScalarProperty Name="b" ColumnName="b" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UZ">
+      <EntityTypeMapping TypeName="IsTypeOf(KyrsovayaRabotaDBModel.UZ)">
+        <MappingFragment StoreEntitySet="UZ">
+          <ScalarProperty Name="CodeUz" ColumnName="CodeUz" />
+          <ScalarProperty Name="NameUz" ColumnName="NameUz" />
+          <ScalarProperty Name="NP" ColumnName="NP" />
+          <ScalarProperty Name="SE_id" ColumnName="SE_id" />
+          <ScalarProperty Name="i" ColumnName="i" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

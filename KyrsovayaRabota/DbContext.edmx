@@ -1,0 +1,376 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="KyrsovayaRabotaDBModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2012" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="KyrsovayaRabotaDBModelStoreContainer">
+    <EntitySet Name="DET" EntityType="KyrsovayaRabotaDBModel.Store.DET" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="SE" EntityType="KyrsovayaRabotaDBModel.Store.SE" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Table_1" EntityType="KyrsovayaRabotaDBModel.Store.Table_1" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Table_2" EntityType="KyrsovayaRabotaDBModel.Store.Table_2" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Table_3" EntityType="KyrsovayaRabotaDBModel.Store.Table_3" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="UZ" EntityType="KyrsovayaRabotaDBModel.Store.UZ" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="FK_SE_DET" Association="KyrsovayaRabotaDBModel.Store.FK_SE_DET">
+      <End Role="DET" EntitySet="DET" />
+      <End Role="SE" EntitySet="SE" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UZ_SE1" Association="KyrsovayaRabotaDBModel.Store.FK_UZ_SE1">
+      <End Role="SE" EntitySet="SE" />
+      <End Role="UZ" EntitySet="UZ" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="DET">
+    <Key>
+      <PropertyRef Name="CodeDET" />
+    </Key>
+    <Property Name="CodeDET" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="NameDET" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="b" Type="float" Nullable="false" />
+    <Property Name="y" Type="float" Nullable="false" />
+    <Property Name="h" Type="float" Nullable="false" />
+    <Property Name="da" Type="float" Nullable="false" />
+    <Property Name="a1" Type="float" Nullable="false" />
+    <Property Name="a" Type="float" Nullable="false" />
+    <Property Name="a_min" Type="float" Nullable="false" />
+    <Property Name="a_max" Type="float" Nullable="false" />
+    <Property Name="F_pred" Type="float" Nullable="false" />
+    <Property Name="n1" Type="float" Nullable="false" />
+    <Property Name="n2" Type="float" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SE">
+    <Key>
+      <PropertyRef Name="CodeSE" />
+    </Key>
+    <Property Name="CodeSE" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="NameSE" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="e" Type="float" Nullable="false" />
+    <Property Name="del_tk" Type="float" Nullable="false" />
+    <Property Name="m" Type="float" Nullable="false" />
+    <Property Name="z1" Type="float" Nullable="false" />
+    <Property Name="C1" Type="float" Nullable="false" />
+    <Property Name="PsiP" Type="float" Nullable="false" />
+    <Property Name="Ip" Type="float" Nullable="false" />
+    <Property Name="q" Type="float" Nullable="false" />
+    <Property Name="z0" Type="float" Nullable="false" />
+    <Property Name="z2" Type="float" Nullable="false" />
+    <Property Name="TrType" Type="char" Nullable="false" MaxLength="10" />
+    <Property Name="bo" Type="float" Nullable="false" />
+    <Property Name="br" Type="float" Nullable="false" />
+    <Property Name="N" Type="float" Nullable="false" />
+    <Property Name="F_okr" Type="float" Nullable="false" />
+    <Property Name="u" Type="float" Nullable="false" />
+    <Property Name="DET_id" Type="varchar" Nullable="false" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Table_1">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="m" Type="int" Nullable="false" />
+    <Property Name="TrType" Type="nchar" Nullable="false" MaxLength="10" />
+    <Property Name="Ip" Type="float" Nullable="false" />
+    <Property Name="q" Type="float" Nullable="false" />
+    <Property Name="e" Type="float" Nullable="false" />
+    <Property Name="id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Table_2">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="m" Type="int" Nullable="false" />
+    <Property Name="n1_l" Type="float" Nullable="false" />
+    <Property Name="n1_h" Type="float" Nullable="false" />
+    <Property Name="z1" Type="float" Nullable="false" />
+    <Property Name="is_suitable" Type="bit" Nullable="false" />
+    <Property Name="id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Table_3">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="m" Type="int" Nullable="false" />
+    <Property Name="b" Type="float" Nullable="false" />
+    <Property Name="id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="UZ">
+    <Key>
+      <PropertyRef Name="CodeUz" />
+    </Key>
+    <Property Name="CodeUz" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="NameUz" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="NP" Type="float" Nullable="false" />
+    <Property Name="SE_id" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="i" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_SE_DET">
+    <End Role="DET" Type="KyrsovayaRabotaDBModel.Store.DET" Multiplicity="1" />
+    <End Role="SE" Type="KyrsovayaRabotaDBModel.Store.SE" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="DET">
+        <PropertyRef Name="CodeDET" />
+      </Principal>
+      <Dependent Role="SE">
+        <PropertyRef Name="CodeSE" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UZ_SE1">
+    <End Role="SE" Type="KyrsovayaRabotaDBModel.Store.SE" Multiplicity="1" />
+    <End Role="UZ" Type="KyrsovayaRabotaDBModel.Store.UZ" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SE">
+        <PropertyRef Name="CodeSE" />
+      </Principal>
+      <Dependent Role="UZ">
+        <PropertyRef Name="SE_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="KyrsovayaRabotaDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="DET">
+          <Key>
+            <PropertyRef Name="CodeDET" />
+          </Key>
+          <Property Name="CodeDET" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="NameDET" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="b" Type="Double" Nullable="false" />
+          <Property Name="y" Type="Double" Nullable="false" />
+          <Property Name="h" Type="Double" Nullable="false" />
+          <Property Name="da" Type="Double" Nullable="false" />
+          <Property Name="a1" Type="Double" Nullable="false" />
+          <Property Name="a" Type="Double" Nullable="false" />
+          <Property Name="a_min" Type="Double" Nullable="false" />
+          <Property Name="a_max" Type="Double" Nullable="false" />
+          <Property Name="F_pred" Type="Double" Nullable="false" />
+          <Property Name="n1" Type="Double" Nullable="false" />
+          <Property Name="n2" Type="Double" Nullable="false" />
+          <NavigationProperty Name="SE" Relationship="Self.FK_SE_DET" FromRole="DET" ToRole="SE" />
+        </EntityType>
+        <EntityType Name="SE">
+          <Key>
+            <PropertyRef Name="CodeSE" />
+          </Key>
+          <Property Name="CodeSE" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="NameSE" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="e" Type="Double" Nullable="false" />
+          <Property Name="del_tk" Type="Double" Nullable="false" />
+          <Property Name="m" Type="Double" Nullable="false" />
+          <Property Name="z1" Type="Double" Nullable="false" />
+          <Property Name="C1" Type="Double" Nullable="false" />
+          <Property Name="PsiP" Type="Double" Nullable="false" />
+          <Property Name="Ip" Type="Double" Nullable="false" />
+          <Property Name="q" Type="Double" Nullable="false" />
+          <Property Name="z0" Type="Double" Nullable="false" />
+          <Property Name="z2" Type="Double" Nullable="false" />
+          <Property Name="TrType" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="bo" Type="Double" Nullable="false" />
+          <Property Name="br" Type="Double" Nullable="false" />
+          <Property Name="N" Type="Double" Nullable="false" />
+          <Property Name="F_okr" Type="Double" Nullable="false" />
+          <Property Name="u" Type="Double" Nullable="false" />
+          <Property Name="DET_id" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="DET" Relationship="Self.FK_SE_DET" FromRole="SE" ToRole="DET" />
+          <NavigationProperty Name="UZ" Relationship="Self.FK_UZ_SE1" FromRole="SE" ToRole="UZ" />
+        </EntityType>
+        <EntityType Name="Table_1">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="m" Type="Int32" Nullable="false" />
+          <Property Name="TrType" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="Ip" Type="Double" Nullable="false" />
+          <Property Name="q" Type="Double" Nullable="false" />
+          <Property Name="e" Type="Double" Nullable="false" />
+          <Property Name="id" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Table_2">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="m" Type="Int32" Nullable="false" />
+          <Property Name="n1_l" Type="Double" Nullable="false" />
+          <Property Name="n1_h" Type="Double" Nullable="false" />
+          <Property Name="z1" Type="Double" Nullable="false" />
+          <Property Name="is_suitable" Type="Boolean" Nullable="false" />
+          <Property Name="id" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Table_3">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="m" Type="Int32" Nullable="false" />
+          <Property Name="b" Type="Double" Nullable="false" />
+          <Property Name="id" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="UZ">
+          <Key>
+            <PropertyRef Name="CodeUz" />
+          </Key>
+          <Property Name="CodeUz" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="NameUz" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="NP" Type="Double" Nullable="false" />
+          <Property Name="SE_id" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="i" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="SE" Relationship="Self.FK_UZ_SE1" FromRole="UZ" ToRole="SE" />
+        </EntityType>
+        <Association Name="FK_SE_DET">
+          <End Role="DET" Type="Self.DET" Multiplicity="1" />
+          <End Role="SE" Type="Self.SE" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="DET">
+              <PropertyRef Name="CodeDET" />
+            </Principal>
+            <Dependent Role="SE">
+              <PropertyRef Name="CodeSE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UZ_SE1">
+          <End Role="SE" Type="Self.SE" Multiplicity="1" />
+          <End Role="UZ" Type="Self.UZ" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SE">
+              <PropertyRef Name="CodeSE" />
+            </Principal>
+            <Dependent Role="UZ">
+              <PropertyRef Name="SE_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="KyrsovayaRabotaDBEntities1" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="DET" EntityType="Self.DET" />
+          <EntitySet Name="SE" EntityType="Self.SE" />
+          <EntitySet Name="Table_1" EntityType="Self.Table_1" />
+          <EntitySet Name="Table_2" EntityType="Self.Table_2" />
+          <EntitySet Name="Table_3" EntityType="Self.Table_3" />
+          <EntitySet Name="UZ" EntityType="Self.UZ" />
+          <AssociationSet Name="FK_SE_DET" Association="Self.FK_SE_DET">
+            <End Role="DET" EntitySet="DET" />
+            <End Role="SE" EntitySet="SE" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UZ_SE1" Association="Self.FK_UZ_SE1">
+            <End Role="SE" EntitySet="SE" />
+            <End Role="UZ" EntitySet="UZ" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+    <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="KyrsovayaRabotaDBModelStoreContainer" CdmEntityContainer="KyrsovayaRabotaDBEntities1">
+    <EntitySetMapping Name="DET">
+      <EntityTypeMapping TypeName="IsTypeOf(KyrsovayaRabotaDBModel.DET)">
+        <MappingFragment StoreEntitySet="DET">
+          <ScalarProperty Name="CodeDET" ColumnName="CodeDET" />
+          <ScalarProperty Name="NameDET" ColumnName="NameDET" />
+          <ScalarProperty Name="b" ColumnName="b" />
+          <ScalarProperty Name="y" ColumnName="y" />
+          <ScalarProperty Name="h" ColumnName="h" />
+          <ScalarProperty Name="da" ColumnName="da" />
+          <ScalarProperty Name="a1" ColumnName="a1" />
+          <ScalarProperty Name="a" ColumnName="a" />
+          <ScalarProperty Name="a_min" ColumnName="a_min" />
+          <ScalarProperty Name="a_max" ColumnName="a_max" />
+          <ScalarProperty Name="F_pred" ColumnName="F_pred" />
+          <ScalarProperty Name="n1" ColumnName="n1" />
+          <ScalarProperty Name="n2" ColumnName="n2" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SE">
+      <EntityTypeMapping TypeName="IsTypeOf(KyrsovayaRabotaDBModel.SE)">
+        <MappingFragment StoreEntitySet="SE">
+          <ScalarProperty Name="CodeSE" ColumnName="CodeSE" />
+          <ScalarProperty Name="NameSE" ColumnName="NameSE" />
+          <ScalarProperty Name="e" ColumnName="e" />
+          <ScalarProperty Name="del_tk" ColumnName="del_tk" />
+          <ScalarProperty Name="m" ColumnName="m" />
+          <ScalarProperty Name="z1" ColumnName="z1" />
+          <ScalarProperty Name="C1" ColumnName="C1" />
+          <ScalarProperty Name="PsiP" ColumnName="PsiP" />
+          <ScalarProperty Name="Ip" ColumnName="Ip" />
+          <ScalarProperty Name="q" ColumnName="q" />
+          <ScalarProperty Name="z0" ColumnName="z0" />
+          <ScalarProperty Name="z2" ColumnName="z2" />
+          <ScalarProperty Name="TrType" ColumnName="TrType" />
+          <ScalarProperty Name="bo" ColumnName="bo" />
+          <ScalarProperty Name="br" ColumnName="br" />
+          <ScalarProperty Name="N" ColumnName="N" />
+          <ScalarProperty Name="F_okr" ColumnName="F_okr" />
+          <ScalarProperty Name="u" ColumnName="u" />
+          <ScalarProperty Name="DET_id" ColumnName="DET_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Table_1">
+      <EntityTypeMapping TypeName="IsTypeOf(KyrsovayaRabotaDBModel.Table_1)">
+        <MappingFragment StoreEntitySet="Table_1">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="m" ColumnName="m" />
+          <ScalarProperty Name="TrType" ColumnName="TrType" />
+          <ScalarProperty Name="Ip" ColumnName="Ip" />
+          <ScalarProperty Name="q" ColumnName="q" />
+          <ScalarProperty Name="e" ColumnName="e" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Table_2">
+      <EntityTypeMapping TypeName="IsTypeOf(KyrsovayaRabotaDBModel.Table_2)">
+        <MappingFragment StoreEntitySet="Table_2">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="m" ColumnName="m" />
+          <ScalarProperty Name="n1_l" ColumnName="n1_l" />
+          <ScalarProperty Name="n1_h" ColumnName="n1_h" />
+          <ScalarProperty Name="z1" ColumnName="z1" />
+          <ScalarProperty Name="is_suitable" ColumnName="is_suitable" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Table_3">
+      <EntityTypeMapping TypeName="IsTypeOf(KyrsovayaRabotaDBModel.Table_3)">
+        <MappingFragment StoreEntitySet="Table_3">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="m" ColumnName="m" />
+          <ScalarProperty Name="b" ColumnName="b" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UZ">
+      <EntityTypeMapping TypeName="IsTypeOf(KyrsovayaRabotaDBModel.UZ)">
+        <MappingFragment StoreEntitySet="UZ">
+          <ScalarProperty Name="CodeUz" ColumnName="CodeUz" />
+          <ScalarProperty Name="NameUz" ColumnName="NameUz" />
+          <ScalarProperty Name="NP" ColumnName="NP" />
+          <ScalarProperty Name="SE_id" ColumnName="SE_id" />
+          <ScalarProperty Name="i" ColumnName="i" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping></edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="False" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Нет" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
