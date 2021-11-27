@@ -4,15 +4,15 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="1554b555b0fe4977b1fc688412bef6e4" Name="Diagram1">
-        <EntityTypeShape EntityType="KyrsovayaRabotaDBModel.DET" Width="1.5" PointX="0.75" PointY="1.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="KyrsovayaRabotaDBModel.SE" Width="1.5" PointX="3" PointY="1.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="KyrsovayaRabotaDBModel.Table_1" Width="1.5" PointX="12.75" PointY="2.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="KyrsovayaRabotaDBModel.Table_2" Width="1.5" PointX="11.125" PointY="2.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="KyrsovayaRabotaDBModel.Table_3" Width="1.5" PointX="9.25" PointY="2.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="KyrsovayaRabotaDBModel.UZ" Width="1.5" PointX="5.25" PointY="2.5" IsExpanded="true" />
-        <AssociationConnector Association="KyrsovayaRabotaDBModel.FK_SE_DET" ManuallyRouted="false" />
-        <AssociationConnector Association="KyrsovayaRabotaDBModel.FK_UZ_SE1" ManuallyRouted="false" />
+      <Diagram DiagramId="ba1d3c10dca7458ba53e50be931e4b52" Name="Diagram1">
+        <EntityTypeShape EntityType="DBModel.DET" Width="1.5" PointX="0.75" PointY="2.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBModel.SE" Width="1.5" PointX="3" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBModel.Table_1" Width="1.5" PointX="5.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBModel.Table_2" Width="1.5" PointX="7.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBModel.Table_3" Width="1.5" PointX="0.75" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBModel.UZ" Width="1.5" PointX="5.25" PointY="2.875" IsExpanded="true" />
+        <AssociationConnector Association="DBModel.FK_SE_DET" ManuallyRouted="false" />
+        <AssociationConnector Association="DBModel.FK_UZ_SE1" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-  <EntityContainerMapping StorageEntityContainer="KyrsovayaRabotaDBModelStoreContainer" CdmEntityContainer="KyrsovayaRabotaDBEntities1">
+  <EntityContainerMapping StorageEntityContainer="Хранилище DBModelContainer" CdmEntityContainer="AppDbContext">
     <EntitySetMapping Name="DET">
-      <EntityTypeMapping TypeName="IsTypeOf(KyrsovayaRabotaDBModel.DET)">
+      <EntityTypeMapping TypeName="DBModel.DET">
         <MappingFragment StoreEntitySet="DET">
           <ScalarProperty Name="CodeDET" ColumnName="CodeDET" />
           <ScalarProperty Name="NameDET" ColumnName="NameDET" />
@@ -19,7 +19,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="SE">
-      <EntityTypeMapping TypeName="IsTypeOf(KyrsovayaRabotaDBModel.SE)">
+      <EntityTypeMapping TypeName="DBModel.SE">
         <MappingFragment StoreEntitySet="SE">
           <ScalarProperty Name="CodeSE" ColumnName="CodeSE" />
           <ScalarProperty Name="NameSE" ColumnName="NameSE" />
@@ -47,40 +47,40 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Table_1">
-      <EntityTypeMapping TypeName="IsTypeOf(KyrsovayaRabotaDBModel.Table_1)">
+      <EntityTypeMapping TypeName="DBModel.Table_1">
         <MappingFragment StoreEntitySet="Table_1">
-          <ScalarProperty Name="id" ColumnName="id" />
           <ScalarProperty Name="m" ColumnName="m" />
           <ScalarProperty Name="TrType" ColumnName="TrType" />
           <ScalarProperty Name="Ip" ColumnName="Ip" />
           <ScalarProperty Name="q" ColumnName="q" />
           <ScalarProperty Name="e" ColumnName="e" />
+          <ScalarProperty Name="id" ColumnName="id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Table_2">
-      <EntityTypeMapping TypeName="IsTypeOf(KyrsovayaRabotaDBModel.Table_2)">
+      <EntityTypeMapping TypeName="DBModel.Table_2">
         <MappingFragment StoreEntitySet="Table_2">
-          <ScalarProperty Name="id" ColumnName="id" />
           <ScalarProperty Name="m" ColumnName="m" />
           <ScalarProperty Name="n1_l" ColumnName="n1_l" />
           <ScalarProperty Name="n1_h" ColumnName="n1_h" />
           <ScalarProperty Name="z1" ColumnName="z1" />
           <ScalarProperty Name="is_suitable" ColumnName="is_suitable" />
+          <ScalarProperty Name="id" ColumnName="id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Table_3">
-      <EntityTypeMapping TypeName="IsTypeOf(KyrsovayaRabotaDBModel.Table_3)">
+      <EntityTypeMapping TypeName="DBModel.Table_3">
         <MappingFragment StoreEntitySet="Table_3">
-          <ScalarProperty Name="id" ColumnName="id" />
           <ScalarProperty Name="m" ColumnName="m" />
           <ScalarProperty Name="b" ColumnName="b" />
+          <ScalarProperty Name="id" ColumnName="id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="UZ">
-      <EntityTypeMapping TypeName="IsTypeOf(KyrsovayaRabotaDBModel.UZ)">
+      <EntityTypeMapping TypeName="DBModel.UZ">
         <MappingFragment StoreEntitySet="UZ">
           <ScalarProperty Name="CodeUz" ColumnName="CodeUz" />
           <ScalarProperty Name="NameUz" ColumnName="NameUz" />

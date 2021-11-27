@@ -1,0 +1,123 @@
+﻿//Table_1
+INSERT INTO TABLE_1 (m,TrType,Ip,q,e,id) VALUES (2,'1x7',0.0018,0.0032,0.16,1);
+
+INSERT INTO TABLE_1 (m,TrType,Ip,q,e,id) VALUES (3,'1x7',0.0025,0.004,0.17,2);
+
+INSERT INTO TABLE_1 (m,TrType,Ip,q,e,id) VALUES (4,'1x7',0.003,0.005,0.18,3);
+
+INSERT INTO TABLE_1 (m,TrType,Ip,q,e,id) VALUES (4,'1x21',0.0011,0.0065,0.19,4);
+
+INSERT INTO TABLE_1 (m,TrType,Ip,q,e,id) VALUES (5,'1x21',0.0013,0.007,0.2,5);
+
+INSERT INTO TABLE_1 (m,TrType,Ip,q,e,id) VALUES (7,'1x21',0.0019,0.008,0.21,6);
+
+INSERT INTO TABLE_1 (m,TrType,Ip,q,e,id) VALUES (10,'1x21',0.0025,0.011,0.22,7);
+
+
+//Table_2
+
+INSERT INTO TABLE_2 (m,n1_l,n1_h,z1,is_suitable,id) VALUES (2,500,3000,12,'True',1);
+
+INSERT INTO TABLE_2 (m,n1_l,n1_h,z1,is_suitable,id) VALUES (2,3500,4500,14,'True',2);
+
+INSERT INTO TABLE_2 (m,n1_l,n1_h,z1,is_suitable,id) VALUES (2,5000,6800,16,'True',3);
+
+INSERT INTO TABLE_2 (m,n1_l,n1_h,z1,is_suitable,id) VALUES (2,7000,7500,18,'True',4);
+
+INSERT INTO TABLE_2 (m,n1_l,n1_h,z1,is_suitable,id) VALUES (3,500,1000,12,'True',5);
+
+INSERT INTO TABLE_2 (m,n1_l,n1_h,z1,is_suitable,id) VALUES (3,1500,2000,14,'True',6);
+
+INSERT INTO TABLE_2 (m,n1_l,n1_h,z1,is_suitable,id) VALUES (3,2500,3500,16,'True',7);
+
+INSERT INTO TABLE_2 (m,n1_l,n1_h,z1,is_suitable,id) VALUES (3,4000,5000,18,'True',8);
+
+INSERT INTO TABLE_2 (m,n1_l,n1_h,z1,is_suitable,id) VALUES (4,500,500,12,'False',9);
+
+INSERT INTO TABLE_2 (m,n1_l,n1_h,z1,is_suitable,id) VALUES (4,1000,1000,14,'False',10);
+
+INSERT INTO TABLE_2 (m,n1_l,n1_h,z1,is_suitable,id) VALUES (4,1500,2000,16,'False',11);
+
+INSERT INTO TABLE_2 (m,n1_l,n1_h,z1,is_suitable,id) VALUES (4,2500,3500,18,'False',12);
+
+INSERT INTO TABLE_2 (m,n1_l,n1_h,z1,is_suitable,id) VALUES (4,500,500,14,'True',13);
+
+INSERT INTO TABLE_2 (m,n1_l,n1_h,z1,is_suitable,id) VALUES (4,1000,1000,16,'True',14);
+
+INSERT INTO TABLE_2 (m,n1_l,n1_h,z1,is_suitable,id) VALUES (4,1500,2000,18,'True',15);
+
+INSERT INTO TABLE_2 (m,n1_l,n1_h,z1,is_suitable,id) VALUES (4,2500,3500,20,'True',16);
+
+INSERT INTO TABLE_2 (m,n1_l,n1_h,z1,is_suitable,id) VALUES (5,500,500,16,'True',17);
+
+INSERT INTO TABLE_2 (m,n1_l,n1_h,z1,is_suitable,id) VALUES (5,1000,1500,18,'True',18);
+
+INSERT INTO TABLE_2 (m,n1_l,n1_h,z1,is_suitable,id) VALUES (5,2000,3000,20,'True',19);
+
+INSERT INTO TABLE_2 (m,n1_l,n1_h,z1,is_suitable,id) VALUES (5,3500,4000,22,'True',20);
+
+INSERT INTO TABLE_2 (m,n1_l,n1_h,z1,is_suitable,id) VALUES (7,500,500,20,'True',21);
+
+INSERT INTO TABLE_2 (m,n1_l,n1_h,z1,is_suitable,id) VALUES (7,1000,1000,22,'True',22);
+
+INSERT INTO TABLE_2 (m,n1_l,n1_h,z1,is_suitable,id) VALUES (7,1500,1500,24,'True',23);
+
+INSERT INTO TABLE_2 (m,n1_l,n1_h,z1,is_suitable,id) VALUES (7,2000,2000,26,'True',24);
+
+INSERT INTO TABLE_2 (m,n1_l,n1_h,z1,is_suitable,id) VALUES (10,500,500,20,'True',25);
+
+INSERT INTO TABLE_2 (m,n1_l,n1_h,z1,is_suitable,id) VALUES (10,1000,1000,22,'True',26);
+
+INSERT INTO TABLE_2 (m,n1_l,n1_h,z1,is_suitable,id) VALUES (10,1500,1500,24,'True',27);
+
+INSERT INTO TABLE_2 (m,n1_l,n1_h,z1,is_suitable,id) VALUES (10,2000,2000,26,'True',28);
+
+INSERT INTO TABLE_2 (m,n1_l,n1_h,z1,is_suitable,id) VALUES (10,2000,2000,28,'True',29);
+
+
+
+//Table_3
+
+INSERT INTO TABLE_3 (m,b,id) VALUES (2,8,1);
+
+INSERT INTO TABLE_3 (m,b,id) VALUES (2,10,2);
+
+INSERT INTO TABLE_3 (m,b,id) VALUES (2,12.5,3);
+
+INSERT INTO TABLE_3 (m,b,id) VALUES (2,16,4);
+
+INSERT INTO TABLE_3 (m,b,id) VALUES (3,12.5,5);
+
+INSERT INTO TABLE_3 (m,b,id) VALUES (3,16,6);
+
+INSERT INTO TABLE_3 (m,b,id) VALUES (3,20,7);
+
+INSERT INTO TABLE_3 (m,b,id) VALUES (3,25,8);
+
+INSERT INTO TABLE_3 (m,b,id) VALUES (4,20,9);
+
+INSERT INTO TABLE_3 (m,b,id) VALUES (4,25,10);
+
+INSERT INTO TABLE_3 (m,b,id) VALUES (4,32,11);
+
+INSERT INTO TABLE_3 (m,b,id) VALUES (4,40,12);
+
+INSERT INTO TABLE_3 (m,b,id) VALUES (5,25,13);
+
+INSERT INTO TABLE_3 (m,b,id) VALUES (5,32,14);
+
+INSERT INTO TABLE_3 (m,b,id) VALUES (5,40,15);
+
+INSERT INTO TABLE_3 (m,b,id) VALUES (5,50,16);
+
+INSERT INTO TABLE_3 (m,b,id) VALUES (7,50,17);
+
+INSERT INTO TABLE_3 (m,b,id) VALUES (7,63,18);
+
+INSERT INTO TABLE_3 (m,b,id) VALUES (7,80,19);
+
+INSERT INTO TABLE_3 (m,b,id) VALUES (10,50,20);
+
+INSERT INTO TABLE_3 (m,b,id) VALUES (10,63,21);
+
+INSERT INTO TABLE_3 (m,b,id) VALUES (10,80,22);

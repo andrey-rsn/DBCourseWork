@@ -20,7 +20,7 @@ namespace KyrsovayaRabota
     /// </summary>
     public partial class MainWindow : Window
     {
-        private KyrsovayaRabotaDBEntities1 _context;
+        //private KyrsovayaRabotaDBEntities1 _context;
         public MainWindow()
         {
             InitializeComponent();
@@ -38,9 +38,9 @@ namespace KyrsovayaRabota
         private void Button1_Click_1(object sender, RoutedEventArgs e)
         {
             var a = new UZ { CodeUz = Guid.NewGuid().ToString(), NameUz = "uzel1", i = 3, NP = 14 };
-            _context.UZ.Add(a);
+            //_context.UZ.Add(a);
             //DataGrid1.ItemsSource =  _context.Table_1.ToList();
-           _context.SaveChanges();
+          // _context.SaveChanges();
         }
 
         private void GoToUzButton_Click(object sender, RoutedEventArgs e)

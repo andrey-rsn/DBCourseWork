@@ -13,18 +13,17 @@ namespace KyrsovayaRabota
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class KyrsovayaRabotaDBEntities1 : DbContext
+    public partial class AppDbContext : DbContext
     {
-        public static KyrsovayaRabotaDBEntities1 _context;
-
-        public static KyrsovayaRabotaDBEntities1 getContext()
+        public static AppDbContext _context;
+        public static AppDbContext getContext()
         {
-            if (_context == null)
-                _context = new KyrsovayaRabotaDBEntities1();
+            if( _context == null )
+                _context = new AppDbContext();
             return _context;
         }
-        public KyrsovayaRabotaDBEntities1()
-            : base("name=KyrsovayaRabotaDBEntities1")
+        public AppDbContext()
+            : base("name=AppDbContext")
         {
         }
     
