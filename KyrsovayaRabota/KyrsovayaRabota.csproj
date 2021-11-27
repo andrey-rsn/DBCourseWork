@@ -64,6 +64,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Data\contextDb.cs" />
     <Compile Include="DbContext.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -179,6 +180,7 @@
       <DependentUpon>DbContext.edmx</DependentUpon>
       <LastGenOutput>DbContext.cs</LastGenOutput>
     </Content>
+    <Content Include="Fix2.edmx.sql" />
     <Content Include="krdb.edmx.sql" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

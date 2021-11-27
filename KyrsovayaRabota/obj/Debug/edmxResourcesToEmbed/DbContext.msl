@@ -8,15 +8,13 @@
           <ScalarProperty Name="NameDET" ColumnName="NameDET" />
           <ScalarProperty Name="b" ColumnName="b" />
           <ScalarProperty Name="y" ColumnName="y" />
-          <ScalarProperty Name="h" ColumnName="h" />
           <ScalarProperty Name="da" ColumnName="da" />
           <ScalarProperty Name="a1" ColumnName="a1" />
-          <ScalarProperty Name="a" ColumnName="a" />
-          <ScalarProperty Name="a_min" ColumnName="a_min" />
-          <ScalarProperty Name="a_max" ColumnName="a_max" />
-          <ScalarProperty Name="F_pred" ColumnName="F_pred" />
           <ScalarProperty Name="n1" ColumnName="n1" />
           <ScalarProperty Name="n2" ColumnName="n2" />
+          <ScalarProperty Name="z1" ColumnName="z1" />
+          <ScalarProperty Name="z2" ColumnName="z2" />
+          <ScalarProperty Name="C1" ColumnName="C1" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -28,13 +26,10 @@
           <ScalarProperty Name="e" ColumnName="e" />
           <ScalarProperty Name="del_tk" ColumnName="del_tk" />
           <ScalarProperty Name="m" ColumnName="m" />
-          <ScalarProperty Name="z1" ColumnName="z1" />
-          <ScalarProperty Name="C1" ColumnName="C1" />
           <ScalarProperty Name="PsiP" ColumnName="PsiP" />
           <ScalarProperty Name="Ip" ColumnName="Ip" />
           <ScalarProperty Name="q" ColumnName="q" />
           <ScalarProperty Name="z0" ColumnName="z0" />
-          <ScalarProperty Name="z2" ColumnName="z2" />
           <ScalarProperty Name="TrType" ColumnName="TrType" />
           <ScalarProperty Name="bo" ColumnName="bo" />
           <ScalarProperty Name="br" ColumnName="br" />
@@ -42,6 +37,12 @@
           <ScalarProperty Name="F_okr" ColumnName="F_okr" />
           <ScalarProperty Name="u" ColumnName="u" />
           <ScalarProperty Name="DET_id" ColumnName="DET_id" />
+          <ScalarProperty Name="F_pred" ColumnName="F_pred" />
+          <ScalarProperty Name="h" ColumnName="h" />
+          <ScalarProperty Name="a" ColumnName="a" />
+          <ScalarProperty Name="a_min" ColumnName="a_min" />
+          <ScalarProperty Name="a_max" ColumnName="a_max" />
+          <ScalarProperty Name="del" ColumnName="del" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

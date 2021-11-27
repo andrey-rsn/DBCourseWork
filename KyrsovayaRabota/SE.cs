@@ -24,14 +24,11 @@ namespace KyrsovayaRabota
         public string NameSE { get; set; }
         public double e { get; set; }
         public double del_tk { get; set; }
-        public double m { get; set; }
-        public double z1 { get; set; }
-        public double C1 { get; set; }
+        public int m { get; set; }
         public double PsiP { get; set; }
         public double Ip { get; set; }
         public double q { get; set; }
         public double z0 { get; set; }
-        public double z2 { get; set; }
         public string TrType { get; set; }
         public double bo { get; set; }
         public double br { get; set; }
@@ -39,6 +36,12 @@ namespace KyrsovayaRabota
         public double F_okr { get; set; }
         public double u { get; set; }
         public string DET_id { get; set; }
+        public double F_pred { get; set; }
+        public double h { get; set; }
+        public double a { get; set; }
+        public double a_min { get; set; }
+        public double a_max { get; set; }
+        public double del { get; set; }
     
         public virtual DET DET { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

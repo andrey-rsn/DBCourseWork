@@ -24,7 +24,7 @@ namespace KyrsovayaRabota
         public MainWindow()
         {
             InitializeComponent();
-            _context=KyrsovayaRabotaDBEntities1.getContext();
+            //_context=KyrsovayaRabotaDBEntities1.getContext();
         }
       // public static KyrsovayaRabotaDBEntities1 _context;
       //

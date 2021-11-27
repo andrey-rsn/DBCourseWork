@@ -18,15 +18,13 @@ namespace KyrsovayaRabota
         public string NameDET { get; set; }
         public double b { get; set; }
         public double y { get; set; }
-        public double h { get; set; }
         public double da { get; set; }
         public double a1 { get; set; }
-        public double a { get; set; }
-        public double a_min { get; set; }
-        public double a_max { get; set; }
-        public double F_pred { get; set; }
         public double n1 { get; set; }
         public double n2 { get; set; }
+        public double z1 { get; set; }
+        public double z2 { get; set; }
+        public double C1 { get; set; }
     
         public virtual SE SE { get; set; }
     }

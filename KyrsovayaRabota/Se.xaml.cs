@@ -33,7 +33,7 @@ namespace KyrsovayaRabota
             }
             else
             {
-                Det taskWindow = new Det();
+                Det taskWindow = new Det(this.TrTypeCombobox.Text,(float)Convert.ToDouble(this.PsiPTextBox.Text), (float)Convert.ToDouble(this.NTextBox.Text),(float)Convert.ToDouble(this.boTextBox.Text));
                 taskWindow.CodeDet1TextBox.Text = Guid.NewGuid().ToString();
                 taskWindow.CodeDet2TextBox.Text = Guid.NewGuid().ToString();
                 taskWindow.Show();

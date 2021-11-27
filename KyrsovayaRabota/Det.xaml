@@ -17,7 +17,7 @@
         <TextBox x:Name="NameDet2TextBox" HorizontalAlignment="Left" Height="36" Margin="691,89,0,0" TextWrapping="Wrap" Text="Больший шкив" VerticalAlignment="Top" Width="189" IsReadOnlyCaretVisible="True"/>
         <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="126" Margin="28,22,0,0" VerticalAlignment="Top" Width="442"/>
         <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="126" Margin="514,22,0,0" VerticalAlignment="Top" Width="446"/>
-        <Button x:Name="SaveButton" Content="Сохранить" HorizontalAlignment="Left" Height="46" Margin="777,514,0,0" VerticalAlignment="Top" Width="165"/>
+        <Button x:Name="SaveButton" Content="Сохранить" HorizontalAlignment="Left" Height="46" Margin="777,514,0,0" VerticalAlignment="Top" Width="165" Click="SaveButton_Click"/>
         <Label Content="Угол впадины зуба шкива y" HorizontalAlignment="Left" Height="29" Margin="32,189,0,0" VerticalAlignment="Top" Width="168"/>
         <TextBox x:Name="yTextBox" HorizontalAlignment="Left" Height="29" Margin="266,189,0,0" TextWrapping="Wrap" Text="50" VerticalAlignment="Top" Width="177" IsReadOnlyCaretVisible="True"/>
         <Label x:Name="n1Label" Content="Частота вращения меньшего шкива n1" HorizontalAlignment="Left" Height="27" Margin="32,223,0,0" VerticalAlignment="Top" Width="229"/>

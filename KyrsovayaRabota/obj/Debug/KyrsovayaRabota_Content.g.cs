@@ -10,6 +10,7 @@
 
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("dbcontext.context.tt")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("dbcontext.tt")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("fix2.edmx.sql")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("krdb.edmx.sql")]
 
 
