@@ -146,7 +146,7 @@ namespace KyrsovayaRabota
                 _context.DET.Add(new DET { CodeDET = _CodeDet2, a1 = _a1, b = _b, C1 = _C1, da = _da1, n1 = _n1, n2 = _n2, NameDET = _NameDet2, y = _y, z1 = _z1, z2 = _z2 });
                 _context.SaveChanges();
 
-                Se taskWindow = new Se(_se,this);
+                Se taskWindow = new Se(_se,this, _m, _h, _q, _Ip, _br, _F_okr, _del_tk, _e, _u,_a_min, _a_max, _a, _a1, _z0,_y,_da1,_b);
                 taskWindow.AddDetButton.Visibility=Visibility.Hidden;
                 taskWindow.ChangeDet.Visibility=Visibility.Visible;
                 taskWindow.Show();
