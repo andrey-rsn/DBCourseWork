@@ -22,6 +22,7 @@ namespace KyrsovayaRabota
     public partial class Det : Window
     {
         private AppDbContext _context;
+        private Se _se;
         private readonly string _TrType;
         private readonly float _PsiP;
         private readonly float _N;
@@ -49,25 +50,38 @@ namespace KyrsovayaRabota
         private float _a1;
         private float _z0;
         private float _F_pred;
+        private string _CodeDet1;
+        private string _NameDet1;
+        private string _CodeDet2;
+        private string _NameDet2;
+        private string _CodeSe;
+        private string _NameSe;
 
-        public Det(string trType, float psiP, float N, float bo)
+        public Det(string trType, float psiP, float N, float bo,Se se)
         {
             InitializeComponent();
             _TrType = trType;
             _PsiP = psiP;
             _N = N;
             _bo = bo;
+            _se = se;
+            //_CodeSe = CodeSe;
+            //_NameSe = NameSe;
             //_context = AppDbContext.getContext();
         }
 
         private void SaveButton_Click(object sender, RoutedEventArgs e)
         {
             _context=new AppDbContext();
-            _n1 = (float) Convert.ToDouble(this.n1TextBox.Text);
-            _n2= (float)Convert.ToDouble(this.n2TextBox.Text);
-            _y= (float)Convert.ToDouble(this.yTextBox.Text);
+            _n1 = (float) Convert.ToDouble(this.n1TextBox.Text);//
+            _n2= (float)Convert.ToDouble(this.n2TextBox.Text);//
+            _y= (float)Convert.ToDouble(this.yTextBox.Text);//
+            _CodeDet1 = this.CodeDet1TextBox.Text;
+            _CodeDet2 = this.CodeDet2TextBox.Text;
+            _NameDet1=this.NameDet1TextBox.Text;
+            _NameDet1 = this.NameDet1TextBox.Text;
             //_context = new KyrsovayaRabotaDBEntities1();
-            
+
             if (this.yTextBox.Text == ""||this.n1TextBox.Text==""||this.n2TextBox.Text=="")
             {
                 MessageBox.Show("Заполните обязятельные параметры", "Внимание!");
@@ -97,23 +111,22 @@ namespace KyrsovayaRabota
 
                 _F_okr = (float)(1.91 * Math.Pow(10, 7) * _N / (_z1 * _n1 * _m));
 
-                _C1 = (float)(0.15 * _F_okr* _Ip * _z1 / _br);
+                _C1 = (float)(0.15 * _F_okr* _Ip * _z1 / _br);//
 
-                _da1 = _m * _z1 - 2 * _bo + _C1;
+                _da1 = _m * _z1 - 2 * _bo + _C1;//
 
-                _y = 50f;
 
-                _b =(float) Math.Sqrt((4 * _h / (_da1 * Math.Cos(_y))));
+                _b =(float) Math.Sqrt((4 * _h / (_da1 * Math.Cos(_y))));//
 
                 _del_tk = (float)(0.45 * _F_okr * _Ip / _b);
 
                 _e = (float)_context.Table_1.Where(x => x.m == _m && x.TrType == _TrType).Select(x => x.e).FirstOrDefault();
 
-                _n2 = (float)Convert.ToDouble(this.n2TextBox.Text);
+                _n2 = (float)Convert.ToDouble(this.n2TextBox.Text);//
 
                 _u = _n1 / _n2;
 
-                _z2 = _z1 * _u;
+                _z2 = _z1 * _u;//
 
                 _a_min = (float)(0.5 * _m * (_z1 + _z2) + 2 * _m);
 
@@ -121,11 +134,17 @@ namespace KyrsovayaRabota
 
                 _a = (_a_max + _a_min) / 2;
 
-                _a1 = (float)(180 - (_m * (_z2 - _z1) / _a) * 57.3);
+                _a1 = (float)(180 - (_m * (_z2 - _z1) / _a) * 57.3);//
 
                 _z0 = _z1 * _a1 / 360;
 
                 _F_pred= (float)((_h * Math.Tan(_y) - 0.5 * _da1 * (_b - Math.Sin(_b)) + _del_tk)*_b)/ ((_e / _z0) + _Ip);
+
+                _context.DET.Add(new DET { CodeDET = _CodeDet1, a1 = (double)_a1, b = (double)_b, C1 = (double)_C1, da = (double)_da1, n1 = (double)_n1, n2 = (double)_n2, NameDET = _NameDet1, y = (double)_y, z1 = (double)_z1, z2 = (double)_z2 });
+                _context.SaveChanges();
+                _context.DET.Add(new DET { CodeDET = _CodeDet2, a1 = (double)_a1, b = (double)_b, C1 = (double)_C1, da = (double)_da1, n1 = (double)_n1, n2 = (double)_n2, NameDET = _NameDet2, y = (double)_y, z1 = (double)_z1, z2 = (double)_z2 });
+                _context.SaveChanges();
+                Se taskWindow = new Se(_se,this);
             }
         }
     }

@@ -12,8 +12,8 @@
         <TextBox x:Name="СodeSeTextBox" HorizontalAlignment="Left" Height="34" Margin="215,23,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="185"/>
         <TextBox x:Name="NameSeTextBox" HorizontalAlignment="Left" Height="35" Margin="215,62,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="185"/>
         <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="106" Margin="10,10,0,0" VerticalAlignment="Top" Width="418"/>
-        <Button x:Name="SaveSeButton" Content="Сохранить" HorizontalAlignment="Left" Height="46" Margin="25,153,0,0" VerticalAlignment="Top" Width="171"/>
-        <Button x:Name="AddDetButton" Content="Добавить деталь" HorizontalAlignment="Left" Height="43" Margin="25,219,0,0" VerticalAlignment="Top" Width="171" Click="AddDetButton_Click"/>
+        <Button x:Name="SaveSeButton" Content="Сохранить" HorizontalAlignment="Left" Height="46" Margin="10,138,0,0" VerticalAlignment="Top" Width="171" Click="SaveSeButton_Click"/>
+        <Button x:Name="AddDetButton" Content="Добавить деталь" HorizontalAlignment="Left" Height="43" Margin="257,138,0,0" VerticalAlignment="Top" Width="171" Click="AddDetButton_Click"/>
         <Label x:Name="PsiPLabel" Content="Коэффициент ширины ремня PsiP" HorizontalAlignment="Left" Height="34" Margin="522,23,0,0" VerticalAlignment="Top" Width="206"/>
         <TextBox x:Name="PsiPTextBox" HorizontalAlignment="Left" Height="34" Margin="756,23,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="195"/>
         <Label x:Name="TrTypeLabel" Content="Тип троса TrType" HorizontalAlignment="Left" Height="36" Margin="522,79,0,0" VerticalAlignment="Top" Width="206"/>
@@ -21,12 +21,12 @@
         <TextBox x:Name="boTextBox" HorizontalAlignment="Left" Height="44" Margin="756,132,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="195"/>
         <Label Content="Мощность, передаваемая &#xD;&#xA;ремёнем N" HorizontalAlignment="Left" Height="42" Margin="522,199,0,0" VerticalAlignment="Top" Width="206"/>
         <TextBox x:Name="NTextBox" HorizontalAlignment="Left" Height="42" Margin="756,199,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="195"/>
-        <Label Content="Расстояние между осями шкивов a" HorizontalAlignment="Left" Height="44" Margin="522,274,0,0" VerticalAlignment="Top" Width="206"/>
-        <ListBox x:Name="aListBox" HorizontalAlignment="Left" Height="22" Margin="756,274,0,0" VerticalAlignment="Top" Width="195" d:ItemsSource="{d:SampleData ItemCount=5}"/>
-        <ComboBox x:Name="TrTypeCombobox" HorizontalAlignment="Left" Height="35" Margin="756,80,0,0" VerticalAlignment="Top" Width="195" IsEditable="True" IsReadOnly="True">
+        <ComboBox x:Name="TrTypeCombobox" HorizontalAlignment="Left" Height="35" Margin="756,80,0,0" VerticalAlignment="Top" Width="195" IsEditable="True" IsReadOnly="True" BorderThickness="2,2,2,2">
             <TextBlock>1x7</TextBlock>
             <TextBlock>1x21</TextBlock>
         </ComboBox>
+        <DataGrid x:Name="DetDataGrid" HorizontalAlignment="Left" Height="159" Margin="10,353,0,0" VerticalAlignment="Top" Width="414" d:ItemsSource="{d:SampleData ItemCount=5}" IsEnabled="False"/>
+        <Label x:Name="DetLabel" Content="Детали" HorizontalAlignment="Left" Height="30" Margin="176,318,0,0" VerticalAlignment="Top" Width="224" IsEnabled="False"/>
 
     </Grid>
 </Window>
