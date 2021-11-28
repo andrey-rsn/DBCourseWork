@@ -26,7 +26,7 @@ namespace KyrsovayaRabota
 
         private void AddSeButton_Click(object sender, RoutedEventArgs e)
         {
-            Se taskWindow = new Se();
+            Se taskWindow = new Se(this);
             taskWindow.СodeSeTextBox.Text = Guid.NewGuid().ToString();
             taskWindow.СodeSeTextBox.IsReadOnly = true;
             taskWindow.Show();
