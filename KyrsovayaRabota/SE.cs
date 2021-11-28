@@ -17,7 +17,8 @@ namespace KyrsovayaRabota
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public SE()
         {
-            this.UZ = new HashSet<UZ>();
+            this.Details_In_SESet = new HashSet<Details_In_SESet>();
+            this.Se_In_UzSet = new HashSet<Se_In_UzSet>();
         }
     
         public string CodeSE { get; set; }
@@ -35,7 +36,6 @@ namespace KyrsovayaRabota
         public double N { get; set; }
         public double F_okr { get; set; }
         public double u { get; set; }
-        public string DET_id { get; set; }
         public double F_pred { get; set; }
         public double h { get; set; }
         public double a { get; set; }
@@ -43,8 +43,9 @@ namespace KyrsovayaRabota
         public double a_max { get; set; }
         public double del { get; set; }
     
-        public virtual DET DET { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<UZ> UZ { get; set; }
+        public virtual ICollection<Details_In_SESet> Details_In_SESet { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Se_In_UzSet> Se_In_UzSet { get; set; }
     }
 }

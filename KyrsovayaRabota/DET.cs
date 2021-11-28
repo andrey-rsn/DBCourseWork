@@ -14,6 +14,12 @@ namespace KyrsovayaRabota
     
     public partial class DET
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public DET()
+        {
+            this.Details_In_SESet = new HashSet<Details_In_SESet>();
+        }
+    
         public string CodeDET { get; set; }
         public string NameDET { get; set; }
         public double b { get; set; }
@@ -26,6 +32,7 @@ namespace KyrsovayaRabota
         public double z2 { get; set; }
         public double C1 { get; set; }
     
-        public virtual SE SE { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Details_In_SESet> Details_In_SESet { get; set; }
     }
 }

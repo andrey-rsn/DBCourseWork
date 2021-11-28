@@ -25,6 +25,7 @@ namespace KyrsovayaRabota
         private AppDbContext _context;
         private Det _det;
         private Uzel _uzel;
+        private Se _se;
         private int _m;
         private double _h;
         private double _q;
@@ -49,8 +50,7 @@ namespace KyrsovayaRabota
             InitializeComponent();
             _uzel = uzel;
         }
-
-        public Se(Se se, Det det, int m,double h,double q,double Ip,double br,double F_okr,double del_tk,double e,double u,double a_min,double a_max,double a,double a1,double z0,double y,double da1,double b)
+        public Se(Det det,Se se)
         {
             InitializeComponent();
             _context = new AppDbContext();
@@ -60,10 +60,11 @@ namespace KyrsovayaRabota
             this.TrTypeCombobox.Text = se.TrTypeCombobox.Text;
             this.boTextBox.Text = se.boTextBox.Text;
             this.NTextBox.Text = se.NTextBox.Text;
-
-            _det = det;
             this.DetLabel.Visibility = Visibility.Visible;
             this.DetDataGrid.Visibility = Visibility.Visible;
+            _se = se;
+            _uzel = _se._uzel;
+            _det = det;
             var detS = _context.DET.Where(x => x.CodeDET == _det.CodeDet1TextBox.Text || x.CodeDET == _det.CodeDet2TextBox.Text).ToList();
             var sourceList = new List<DETModelView>() { new DETModelView()
             {
@@ -71,35 +72,64 @@ namespace KyrsovayaRabota
                 CodeDet2=detS[0].CodeDET,
                 NameDet1=detS[1].NameDET,
                 NameDet2=detS[0].NameDET,
-                a1=detS[0].a1,
-                b=detS[0].b,
-                C1=detS[0].C1,
-                da=detS[0].da,
                 n1=detS[0].n1,
                 n2=detS[0].n2,
-                y=detS[0].y,
-                z1=detS[0].z1,
-                z2=detS[0].z2
+                y=detS[0].y
+               
             } };
             this.DetDataGrid.ItemsSource = sourceList;
-            _m = m;
-            _h=h;
-            _q=q;
-            _Ip=Ip;
-            _br=br;
-            _F_okr=F_okr;
-            _del_tk=del_tk;
-            _e=e;
-            _u=u;
-            _a_min=a_min;
-            _a_max=a_max;
-            _a=a;
-            _a1=a1;
-            _z0=z0;
-            _y = y;
-            _da1 = da1;
-            _b = b;
         }
+
+        // public Se(Se se, Det det, int m,double h,double q,double Ip,double br,double F_okr,double del_tk,double e,double u,double a_min,double a_max,double a,double a1,double z0,double y,double da1,double b)
+        // {
+        //     InitializeComponent();
+        //     _context = new AppDbContext();
+        //     this.NameSeTextBox.Text = se.NameSeTextBox.Text;
+        //     this.СodeSeTextBox.Text = se.СodeSeTextBox.Text;
+        //     this.PsiPTextBox.Text = se.PsiPTextBox.Text;
+        //     this.TrTypeCombobox.Text = se.TrTypeCombobox.Text;
+        //     this.boTextBox.Text = se.boTextBox.Text;
+        //     this.NTextBox.Text = se.NTextBox.Text;
+        //
+        //     _det = det;
+        //     this.DetLabel.Visibility = Visibility.Visible;
+        //     this.DetDataGrid.Visibility = Visibility.Visible;
+        //     var detS = _context.DET.Where(x => x.CodeDET == _det.CodeDet1TextBox.Text || x.CodeDET == _det.CodeDet2TextBox.Text).ToList();
+        //     var sourceList = new List<DETModelView>() { new DETModelView()
+        //     {
+        //         CodeDet1=detS[1].CodeDET,
+        //         CodeDet2=detS[0].CodeDET,
+        //         NameDet1=detS[1].NameDET,
+        //         NameDet2=detS[0].NameDET,
+        //         a1=detS[0].a1,
+        //         b=detS[0].b,
+        //         C1=detS[0].C1,
+        //         da=detS[0].da,
+        //         n1=detS[0].n1,
+        //         n2=detS[0].n2,
+        //         y=detS[0].y,
+        //         z1=detS[0].z1,
+        //         z2=detS[0].z2
+        //     } };
+        //     this.DetDataGrid.ItemsSource = sourceList;
+        //     _m = m;
+        //     _h=h;
+        //     _q=q;
+        //     _Ip=Ip;
+        //     _br=br;
+        //     _F_okr=F_okr;
+        //     _del_tk=del_tk;
+        //     _e=e;
+        //     _u=u;
+        //     _a_min=a_min;
+        //     _a_max=a_max;
+        //     _a=a;
+        //     _a1=a1;
+        //     _z0=z0;
+        //     _y = y;
+        //     _da1 = da1;
+        //     _b = b;
+        // }
 
         private void AddDetButton_Click(object sender, RoutedEventArgs e)
         {
@@ -110,7 +140,7 @@ namespace KyrsovayaRabota
             }
             else
             {
-                Det taskWindow = new Det(this.TrTypeCombobox.Text,Convert.ToDouble(this.PsiPTextBox.Text), Convert.ToDouble(this.NTextBox.Text),Convert.ToDouble(this.boTextBox.Text),this);
+                Det taskWindow = new Det(this);
                 taskWindow.CodeDet1TextBox.Text = Guid.NewGuid().ToString();
                 taskWindow.CodeDet2TextBox.Text = Guid.NewGuid().ToString();
                 taskWindow.Show();
@@ -127,12 +157,19 @@ namespace KyrsovayaRabota
                
                 MessageBox.Show("Заполните обязательные параметры", "Внимание!");
             }
-            _F_pred = Math.Round(((_h * Math.Tan(_y) - 0.5 * _da1 * (_b - Math.Sin(_b)) + _del_tk) * _b) / ((_e / _z0) + _Ip),4);
-            _del = _F_pred - _F_okr;
-            _context.SE.Add(new SE(){ CodeSE=this.СodeSeTextBox.Text,NameSE=this.NameSeTextBox.Text,a_max=_a_max,a_min=_a_min,a=_a,bo=Convert.ToDouble(this.boTextBox.Text),br=_br,e=_e,F_okr=_F_okr,z0=_z0,h=_h,Ip=_Ip,m=_m,PsiP=Convert.ToDouble(this.PsiPTextBox.Text),N=Convert.ToDouble(this.NTextBox.Text),q=_q,u=_u,DET_id=_det.CodeDet1TextBox.Text,TrType=this.TrTypeCombobox.Text,del_tk=_del_tk,F_pred=_F_pred,del=_del});
-            _context.SE.Add(new SE() { CodeSE = this.СodeSeTextBox.Text, NameSE = this.NameSeTextBox.Text, a_max = _a_max, a_min = _a_min, a = _a, bo = Convert.ToDouble(this.boTextBox.Text), br = _br, e = _e, F_okr = _F_okr, z0 = _z0, h = _h, Ip = _Ip, m = _m, PsiP = Convert.ToDouble(this.PsiPTextBox.Text), N = Convert.ToDouble(this.NTextBox.Text), q = _q, u = _u, DET_id = _det.CodeDet2TextBox.Text, TrType = this.TrTypeCombobox.Text, del_tk = _del_tk, F_pred = _F_pred, del = _del });
+            //_F_pred = Math.Round(((_h * Math.Tan(_y) - 0.5 * _da1 * (_b - Math.Sin(_b)) + _del_tk) * _b) / ((_e / _z0) + _Ip),4);
+            // _del = _F_pred - _F_okr;
+            else 
+            { 
+            _context.SE.Add(new SE(){ CodeSE=this.СodeSeTextBox.Text,NameSE=this.NameSeTextBox.Text,a_max=0,a_min=0,a=0,bo=Convert.ToDouble(this.boTextBox.Text),br=0,e=0,F_okr=0,z0=0,h=0,Ip=0,m=0,PsiP=Convert.ToDouble(this.PsiPTextBox.Text),N=Convert.ToDouble(this.NTextBox.Text),q=0,u=0,TrType=this.TrTypeCombobox.Text,del_tk=0,F_pred=0,del=0});
+            _context.Details_In_SESet.Add(new Details_In_SESet() { DETCodeDET= _det.CodeDet1TextBox.Text,SECodeSE=this.СodeSeTextBox.Text });
+            _context.Details_In_SESet.Add(new Details_In_SESet() { DETCodeDET = _det.CodeDet2TextBox.Text, SECodeSE = this.СodeSeTextBox.Text });
+            //_context.SE.Add(new SE() { CodeSE = this.СodeSeTextBox.Text, NameSE = this.NameSeTextBox.Text, a_max = 0, a_min = 0, a = 0, bo = Convert.ToDouble(this.boTextBox.Text), br = 0, e = 0, F_okr = 0, z0 = 0, h = 0, Ip = 0, m = 0, PsiP = Convert.ToDouble(this.PsiPTextBox.Text), N = Convert.ToDouble(this.NTextBox.Text), q = 0, u = 0, DET_id = _det.CodeDet2TextBox.Text, TrType = this.TrTypeCombobox.Text, del_tk = 0, F_pred = 0, del = 0 });
             _context.SaveChanges();
-            //UZ taskWindow=new UZ(this,);
+            Uzel taskWindow=new Uzel(this,_uzel);
+            taskWindow.Show();
+            this.Hide();
+            }
         }
 
         private void BackButton_Click(object sender, RoutedEventArgs e)

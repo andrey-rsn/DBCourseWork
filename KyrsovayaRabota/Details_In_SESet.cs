@@ -12,20 +12,13 @@ namespace KyrsovayaRabota
     using System;
     using System.Collections.Generic;
     
-    public partial class UZ
+    public partial class Details_In_SESet
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public UZ()
-        {
-            this.Se_In_UzSet = new HashSet<Se_In_UzSet>();
-        }
+        public int Id { get; set; }
+        public string DETCodeDET { get; set; }
+        public string SECodeSE { get; set; }
     
-        public string CodeUz { get; set; }
-        public string NameUz { get; set; }
-        public double NP { get; set; }
-        public int i { get; set; }
-    
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Se_In_UzSet> Se_In_UzSet { get; set; }
+        public virtual DET DET { get; set; }
+        public virtual SE SE { get; set; }
     }
 }

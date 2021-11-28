@@ -64,7 +64,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Calculating.xaml.cs">
+      <DependentUpon>Calculating.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Data\DETModelView.cs" />
+    <Compile Include="Data\SEModelView.cs" />
     <Compile Include="DbContext.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -86,11 +90,17 @@
     <Compile Include="Det.xaml.cs">
       <DependentUpon>Det.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Details_In_SESet.cs">
+      <DependentUpon>DbContext.tt</DependentUpon>
+    </Compile>
     <Compile Include="SE.cs">
       <DependentUpon>DbContext.tt</DependentUpon>
     </Compile>
     <Compile Include="Se.xaml.cs">
       <DependentUpon>Se.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Se_In_UzSet.cs">
+      <DependentUpon>DbContext.tt</DependentUpon>
     </Compile>
     <Compile Include="Table_1.cs">
       <DependentUpon>DbContext.tt</DependentUpon>
@@ -107,6 +117,10 @@
     <Compile Include="Uzel.xaml.cs">
       <DependentUpon>Uzel.xaml</DependentUpon>
     </Compile>
+    <Page Include="Calculating.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Det.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

@@ -1,0 +1,17 @@
+﻿<Window x:Class="KyrsovayaRabota.Calculating"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:KyrsovayaRabota"
+        mc:Ignorable="d"
+        Title="Calculating" Height="450" Width="800">
+    <Grid>
+        <DataGrid x:Name="UzDataGrid" HorizontalAlignment="Center" Height="111" Margin="0,217,0,0" VerticalAlignment="Top" Width="498" d:ItemsSource="{d:SampleData ItemCount=5}"/>
+        <Label x:Name="UzLabel" Content="Параметры узла" HorizontalAlignment="Left" Height="32" Margin="343,180,0,0" VerticalAlignment="Top" Width="193"/>
+        <Button x:Name="BackToMenuButton" Content="Вернуться в главное меню" HorizontalAlignment="Left" Height="48" Margin="35,42,0,0" VerticalAlignment="Top" Width="203"/>
+        <Button x:Name="SaveButton" Content="Сохранить результат в базе данных" HorizontalAlignment="Left" Height="48" Margin="243,42,0,0" VerticalAlignment="Top" Width="245"/>
+        <Button x:Name="BackToUzParamsButton" Content="Редактировать параметры узла" HorizontalAlignment="Left" Height="48" Margin="524,42,0,0" VerticalAlignment="Top" Width="199"/>
+
+    </Grid>
+</Window>

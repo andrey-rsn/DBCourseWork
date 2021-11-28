@@ -15,13 +15,6 @@ namespace KyrsovayaRabota
     
     public partial class AppDbContext : DbContext
     {
-        public static AppDbContext _context;
-        public static AppDbContext getContext()
-        {
-            if( _context == null )
-                _context = new AppDbContext();
-            return _context;
-        }
         public AppDbContext()
             : base("name=AppDbContext")
         {
@@ -33,7 +26,9 @@ namespace KyrsovayaRabota
         }
     
         public virtual DbSet<DET> DET { get; set; }
+        public virtual DbSet<Details_In_SESet> Details_In_SESet { get; set; }
         public virtual DbSet<SE> SE { get; set; }
+        public virtual DbSet<Se_In_UzSet> Se_In_UzSet { get; set; }
         public virtual DbSet<Table_1> Table_1 { get; set; }
         public virtual DbSet<Table_2> Table_2 { get; set; }
         public virtual DbSet<Table_3> Table_3 { get; set; }

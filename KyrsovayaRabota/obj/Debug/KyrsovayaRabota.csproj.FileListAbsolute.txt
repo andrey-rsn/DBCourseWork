@@ -27,3 +27,5 @@ G:\VisualProjects\KyrsovayaWorkDB\KyrsovayaRabota\KyrsovayaRabota\obj\Debug\Se.g
 G:\VisualProjects\KyrsovayaWorkDB\KyrsovayaRabota\KyrsovayaRabota\obj\Debug\Se.baml
 G:\VisualProjects\KyrsovayaWorkDB\KyrsovayaRabota\KyrsovayaRabota\obj\Debug\Det.g.cs
 G:\VisualProjects\KyrsovayaWorkDB\KyrsovayaRabota\KyrsovayaRabota\obj\Debug\Det.baml
+G:\VisualProjects\KyrsovayaWorkDB\KyrsovayaRabota\KyrsovayaRabota\obj\Debug\Calculating.g.cs
+G:\VisualProjects\KyrsovayaWorkDB\KyrsovayaRabota\KyrsovayaRabota\obj\Debug\Calculating.baml

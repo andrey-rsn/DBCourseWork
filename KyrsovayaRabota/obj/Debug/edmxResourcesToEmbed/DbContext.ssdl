@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Schema Namespace="Хранилище DBModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+<Schema Namespace="Хранилище KyrsovayaRabotaDBModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
   <EntityType Name="DET">
     <Key>
       <PropertyRef Name="CodeDET" />
@@ -15,6 +15,14 @@
     <Property Name="z1" Type="float" Nullable="false" />
     <Property Name="z2" Type="float" Nullable="false" />
     <Property Name="C1" Type="float" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Details_In_SESet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DETCodeDET" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="SECodeSE" Type="nvarchar" MaxLength="50" Nullable="false" />
   </EntityType>
   <EntityType Name="SE">
     <Key>
@@ -35,13 +43,20 @@
     <Property Name="N" Type="float" Nullable="false" />
     <Property Name="F_okr" Type="float" Nullable="false" />
     <Property Name="u" Type="float" Nullable="false" />
-    <Property Name="DET_id" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="F_pred" Type="float" Nullable="false" />
     <Property Name="h" Type="float" Nullable="false" />
     <Property Name="a" Type="float" Nullable="false" />
     <Property Name="a_min" Type="float" Nullable="false" />
     <Property Name="a_max" Type="float" Nullable="false" />
     <Property Name="del" Type="float" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Se_In_UzSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UZCodeUz" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="SECodeSE" Type="nvarchar" MaxLength="50" Nullable="false" />
   </EntityType>
   <EntityType Name="Table_1">
     <Key>
@@ -80,47 +95,80 @@
     <Property Name="CodeUz" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="NameUz" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="NP" Type="float" Nullable="false" />
-    <Property Name="SE_id" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="i" Type="int" Nullable="false" />
   </EntityType>
-  <Association Name="FK_SE_DET">
+  <Association Name="FK_DETDetails_In_SE">
     <End Role="DET" Type="Self.DET" Multiplicity="1" />
-    <End Role="SE" Type="Self.SE" Multiplicity="0..1" />
+    <End Role="Details_In_SESet" Type="Self.Details_In_SESet" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="DET">
         <PropertyRef Name="CodeDET" />
       </Principal>
-      <Dependent Role="SE">
-        <PropertyRef Name="CodeSE" />
+      <Dependent Role="Details_In_SESet">
+        <PropertyRef Name="DETCodeDET" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_UZ_SE1">
+  <Association Name="FK_SEDetails_In_SE">
     <End Role="SE" Type="Self.SE" Multiplicity="1" />
-    <End Role="UZ" Type="Self.UZ" Multiplicity="*" />
+    <End Role="Details_In_SESet" Type="Self.Details_In_SESet" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="SE">
         <PropertyRef Name="CodeSE" />
       </Principal>
-      <Dependent Role="UZ">
-        <PropertyRef Name="SE_id" />
+      <Dependent Role="Details_In_SESet">
+        <PropertyRef Name="SECodeSE" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <EntityContainer Name="Хранилище DBModelContainer">
+  <Association Name="FK_SESe_In_Uz">
+    <End Role="SE" Type="Self.SE" Multiplicity="1" />
+    <End Role="Se_In_UzSet" Type="Self.Se_In_UzSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SE">
+        <PropertyRef Name="CodeSE" />
+      </Principal>
+      <Dependent Role="Se_In_UzSet">
+        <PropertyRef Name="SECodeSE" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UZSe_In_Uz">
+    <End Role="UZ" Type="Self.UZ" Multiplicity="1" />
+    <End Role="Se_In_UzSet" Type="Self.Se_In_UzSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UZ">
+        <PropertyRef Name="CodeUz" />
+      </Principal>
+      <Dependent Role="Se_In_UzSet">
+        <PropertyRef Name="UZCodeUz" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="Хранилище KyrsovayaRabotaDBModelContainer">
     <EntitySet Name="DET" EntityType="Self.DET" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Details_In_SESet" EntityType="Self.Details_In_SESet" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="SE" EntityType="Self.SE" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Se_In_UzSet" EntityType="Self.Se_In_UzSet" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Table_1" EntityType="Self.Table_1" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Table_2" EntityType="Self.Table_2" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Table_3" EntityType="Self.Table_3" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="UZ" EntityType="Self.UZ" Schema="dbo" store:Type="Tables" />
-    <AssociationSet Name="FK_SE_DET" Association="Self.FK_SE_DET">
+    <AssociationSet Name="FK_DETDetails_In_SE" Association="Self.FK_DETDetails_In_SE">
       <End Role="DET" EntitySet="DET" />
-      <End Role="SE" EntitySet="SE" />
+      <End Role="Details_In_SESet" EntitySet="Details_In_SESet" />
     </AssociationSet>
-    <AssociationSet Name="FK_UZ_SE1" Association="Self.FK_UZ_SE1">
+    <AssociationSet Name="FK_SEDetails_In_SE" Association="Self.FK_SEDetails_In_SE">
       <End Role="SE" EntitySet="SE" />
+      <End Role="Details_In_SESet" EntitySet="Details_In_SESet" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SESe_In_Uz" Association="Self.FK_SESe_In_Uz">
+      <End Role="SE" EntitySet="SE" />
+      <End Role="Se_In_UzSet" EntitySet="Se_In_UzSet" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UZSe_In_Uz" Association="Self.FK_UZSe_In_Uz">
       <End Role="UZ" EntitySet="UZ" />
+      <End Role="Se_In_UzSet" EntitySet="Se_In_UzSet" />
     </AssociationSet>
   </EntityContainer>
 </Schema>

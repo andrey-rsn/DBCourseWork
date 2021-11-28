@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Schema Namespace="DBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+<Schema Namespace="KyrsovayaRabotaDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
   <EntityType Name="DET">
     <Key>
       <PropertyRef Name="CodeDET" />
@@ -15,7 +15,17 @@
     <Property Name="z1" Type="Double" Nullable="false" />
     <Property Name="z2" Type="Double" Nullable="false" />
     <Property Name="C1" Type="Double" Nullable="false" />
-    <NavigationProperty Name="SE" Relationship="Self.FK_SE_DET" FromRole="DET" ToRole="SE" />
+    <NavigationProperty Name="Details_In_SESet" Relationship="Self.FK_DETDetails_In_SE" FromRole="DET" ToRole="Details_In_SESet" />
+  </EntityType>
+  <EntityType Name="Details_In_SESet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DETCodeDET" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="SECodeSE" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="DET" Relationship="Self.FK_DETDetails_In_SE" FromRole="Details_In_SESet" ToRole="DET" />
+    <NavigationProperty Name="SE" Relationship="Self.FK_SEDetails_In_SE" FromRole="Details_In_SESet" ToRole="SE" />
   </EntityType>
   <EntityType Name="SE">
     <Key>
@@ -36,15 +46,24 @@
     <Property Name="N" Type="Double" Nullable="false" />
     <Property Name="F_okr" Type="Double" Nullable="false" />
     <Property Name="u" Type="Double" Nullable="false" />
-    <Property Name="DET_id" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="F_pred" Type="Double" Nullable="false" />
     <Property Name="h" Type="Double" Nullable="false" />
     <Property Name="a" Type="Double" Nullable="false" />
     <Property Name="a_min" Type="Double" Nullable="false" />
     <Property Name="a_max" Type="Double" Nullable="false" />
     <Property Name="del" Type="Double" Nullable="false" />
-    <NavigationProperty Name="DET" Relationship="Self.FK_SE_DET" FromRole="SE" ToRole="DET" />
-    <NavigationProperty Name="UZ" Relationship="Self.FK_UZ_SE1" FromRole="SE" ToRole="UZ" />
+    <NavigationProperty Name="Details_In_SESet" Relationship="Self.FK_SEDetails_In_SE" FromRole="SE" ToRole="Details_In_SESet" />
+    <NavigationProperty Name="Se_In_UzSet" Relationship="Self.FK_SESe_In_Uz" FromRole="SE" ToRole="Se_In_UzSet" />
+  </EntityType>
+  <EntityType Name="Se_In_UzSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UZCodeUz" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="SECodeSE" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="SE" Relationship="Self.FK_SESe_In_Uz" FromRole="Se_In_UzSet" ToRole="SE" />
+    <NavigationProperty Name="UZ" Relationship="Self.FK_UZSe_In_Uz" FromRole="Se_In_UzSet" ToRole="UZ" />
   </EntityType>
   <EntityType Name="Table_1">
     <Key>
@@ -83,48 +102,81 @@
     <Property Name="CodeUz" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="NameUz" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="NP" Type="Double" Nullable="false" />
-    <Property Name="SE_id" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="i" Type="Int32" Nullable="false" />
-    <NavigationProperty Name="SE" Relationship="Self.FK_UZ_SE1" FromRole="UZ" ToRole="SE" />
+    <NavigationProperty Name="Se_In_UzSet" Relationship="Self.FK_UZSe_In_Uz" FromRole="UZ" ToRole="Se_In_UzSet" />
   </EntityType>
-  <Association Name="FK_SE_DET">
+  <Association Name="FK_DETDetails_In_SE">
     <End Role="DET" Type="Self.DET" Multiplicity="1" />
-    <End Role="SE" Type="Self.SE" Multiplicity="0..1" />
+    <End Role="Details_In_SESet" Type="Self.Details_In_SESet" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="DET">
         <PropertyRef Name="CodeDET" />
       </Principal>
-      <Dependent Role="SE">
-        <PropertyRef Name="CodeSE" />
+      <Dependent Role="Details_In_SESet">
+        <PropertyRef Name="DETCodeDET" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_UZ_SE1">
+  <Association Name="FK_SEDetails_In_SE">
     <End Role="SE" Type="Self.SE" Multiplicity="1" />
-    <End Role="UZ" Type="Self.UZ" Multiplicity="*" />
+    <End Role="Details_In_SESet" Type="Self.Details_In_SESet" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="SE">
         <PropertyRef Name="CodeSE" />
       </Principal>
-      <Dependent Role="UZ">
-        <PropertyRef Name="SE_id" />
+      <Dependent Role="Details_In_SESet">
+        <PropertyRef Name="SECodeSE" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SESe_In_Uz">
+    <End Role="SE" Type="Self.SE" Multiplicity="1" />
+    <End Role="Se_In_UzSet" Type="Self.Se_In_UzSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SE">
+        <PropertyRef Name="CodeSE" />
+      </Principal>
+      <Dependent Role="Se_In_UzSet">
+        <PropertyRef Name="SECodeSE" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UZSe_In_Uz">
+    <End Role="UZ" Type="Self.UZ" Multiplicity="1" />
+    <End Role="Se_In_UzSet" Type="Self.Se_In_UzSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UZ">
+        <PropertyRef Name="CodeUz" />
+      </Principal>
+      <Dependent Role="Se_In_UzSet">
+        <PropertyRef Name="UZCodeUz" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
   <EntityContainer Name="AppDbContext" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="DET" EntityType="Self.DET" />
+    <EntitySet Name="Details_In_SESet" EntityType="Self.Details_In_SESet" />
     <EntitySet Name="SE" EntityType="Self.SE" />
+    <EntitySet Name="Se_In_UzSet" EntityType="Self.Se_In_UzSet" />
     <EntitySet Name="Table_1" EntityType="Self.Table_1" />
     <EntitySet Name="Table_2" EntityType="Self.Table_2" />
     <EntitySet Name="Table_3" EntityType="Self.Table_3" />
     <EntitySet Name="UZ" EntityType="Self.UZ" />
-    <AssociationSet Name="FK_SE_DET" Association="Self.FK_SE_DET">
+    <AssociationSet Name="FK_DETDetails_In_SE" Association="Self.FK_DETDetails_In_SE">
       <End Role="DET" EntitySet="DET" />
-      <End Role="SE" EntitySet="SE" />
+      <End Role="Details_In_SESet" EntitySet="Details_In_SESet" />
     </AssociationSet>
-    <AssociationSet Name="FK_UZ_SE1" Association="Self.FK_UZ_SE1">
+    <AssociationSet Name="FK_SEDetails_In_SE" Association="Self.FK_SEDetails_In_SE">
       <End Role="SE" EntitySet="SE" />
+      <End Role="Details_In_SESet" EntitySet="Details_In_SESet" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SESe_In_Uz" Association="Self.FK_SESe_In_Uz">
+      <End Role="SE" EntitySet="SE" />
+      <End Role="Se_In_UzSet" EntitySet="Se_In_UzSet" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UZSe_In_Uz" Association="Self.FK_UZSe_In_Uz">
       <End Role="UZ" EntitySet="UZ" />
+      <End Role="Se_In_UzSet" EntitySet="Se_In_UzSet" />
     </AssociationSet>
   </EntityContainer>
 </Schema>

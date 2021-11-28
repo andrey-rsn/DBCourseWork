@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-  <EntityContainerMapping StorageEntityContainer="Хранилище DBModelContainer" CdmEntityContainer="AppDbContext">
+  <EntityContainerMapping StorageEntityContainer="Хранилище KyrsovayaRabotaDBModelContainer" CdmEntityContainer="AppDbContext">
     <EntitySetMapping Name="DET">
-      <EntityTypeMapping TypeName="DBModel.DET">
+      <EntityTypeMapping TypeName="KyrsovayaRabotaDBModel.DET">
         <MappingFragment StoreEntitySet="DET">
           <ScalarProperty Name="CodeDET" ColumnName="CodeDET" />
           <ScalarProperty Name="NameDET" ColumnName="NameDET" />
@@ -18,8 +18,17 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="Details_In_SESet">
+      <EntityTypeMapping TypeName="KyrsovayaRabotaDBModel.Details_In_SESet">
+        <MappingFragment StoreEntitySet="Details_In_SESet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="DETCodeDET" ColumnName="DETCodeDET" />
+          <ScalarProperty Name="SECodeSE" ColumnName="SECodeSE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="SE">
-      <EntityTypeMapping TypeName="DBModel.SE">
+      <EntityTypeMapping TypeName="KyrsovayaRabotaDBModel.SE">
         <MappingFragment StoreEntitySet="SE">
           <ScalarProperty Name="CodeSE" ColumnName="CodeSE" />
           <ScalarProperty Name="NameSE" ColumnName="NameSE" />
@@ -36,7 +45,6 @@
           <ScalarProperty Name="N" ColumnName="N" />
           <ScalarProperty Name="F_okr" ColumnName="F_okr" />
           <ScalarProperty Name="u" ColumnName="u" />
-          <ScalarProperty Name="DET_id" ColumnName="DET_id" />
           <ScalarProperty Name="F_pred" ColumnName="F_pred" />
           <ScalarProperty Name="h" ColumnName="h" />
           <ScalarProperty Name="a" ColumnName="a" />
@@ -46,8 +54,17 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="Se_In_UzSet">
+      <EntityTypeMapping TypeName="KyrsovayaRabotaDBModel.Se_In_UzSet">
+        <MappingFragment StoreEntitySet="Se_In_UzSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="UZCodeUz" ColumnName="UZCodeUz" />
+          <ScalarProperty Name="SECodeSE" ColumnName="SECodeSE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="Table_1">
-      <EntityTypeMapping TypeName="DBModel.Table_1">
+      <EntityTypeMapping TypeName="KyrsovayaRabotaDBModel.Table_1">
         <MappingFragment StoreEntitySet="Table_1">
           <ScalarProperty Name="m" ColumnName="m" />
           <ScalarProperty Name="TrType" ColumnName="TrType" />
@@ -59,7 +76,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Table_2">
-      <EntityTypeMapping TypeName="DBModel.Table_2">
+      <EntityTypeMapping TypeName="KyrsovayaRabotaDBModel.Table_2">
         <MappingFragment StoreEntitySet="Table_2">
           <ScalarProperty Name="m" ColumnName="m" />
           <ScalarProperty Name="n1_l" ColumnName="n1_l" />
@@ -71,7 +88,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Table_3">
-      <EntityTypeMapping TypeName="DBModel.Table_3">
+      <EntityTypeMapping TypeName="KyrsovayaRabotaDBModel.Table_3">
         <MappingFragment StoreEntitySet="Table_3">
           <ScalarProperty Name="m" ColumnName="m" />
           <ScalarProperty Name="b" ColumnName="b" />
@@ -80,12 +97,11 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="UZ">
-      <EntityTypeMapping TypeName="DBModel.UZ">
+      <EntityTypeMapping TypeName="KyrsovayaRabotaDBModel.UZ">
         <MappingFragment StoreEntitySet="UZ">
           <ScalarProperty Name="CodeUz" ColumnName="CodeUz" />
           <ScalarProperty Name="NameUz" ColumnName="NameUz" />
           <ScalarProperty Name="NP" ColumnName="NP" />
-          <ScalarProperty Name="SE_id" ColumnName="SE_id" />
           <ScalarProperty Name="i" ColumnName="i" />
         </MappingFragment>
       </EntityTypeMapping>
