@@ -62,6 +62,7 @@
     <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="UZCodeUz" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="SECodeSE" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="i" Type="Int32" Nullable="false" />
     <NavigationProperty Name="SE" Relationship="Self.FK_SESe_In_Uz" FromRole="Se_In_UzSet" ToRole="SE" />
     <NavigationProperty Name="UZ" Relationship="Self.FK_UZSe_In_Uz" FromRole="Se_In_UzSet" ToRole="UZ" />
   </EntityType>
@@ -102,7 +103,6 @@
     <Property Name="CodeUz" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="NameUz" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="NP" Type="Double" Nullable="false" />
-    <Property Name="i" Type="Int32" Nullable="false" />
     <NavigationProperty Name="Se_In_UzSet" Relationship="Self.FK_UZSe_In_Uz" FromRole="UZ" ToRole="Se_In_UzSet" />
   </EntityType>
   <Association Name="FK_DETDetails_In_SE">

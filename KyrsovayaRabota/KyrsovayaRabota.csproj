@@ -94,6 +94,7 @@
     <Compile Include="Details_In_SESet.cs">
       <DependentUpon>DbContext.tt</DependentUpon>
     </Compile>
+    <Compile Include="Logic\CalcUzel.cs" />
     <Compile Include="SE.cs">
       <DependentUpon>DbContext.tt</DependentUpon>
     </Compile>

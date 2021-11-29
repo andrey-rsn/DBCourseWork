@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace KyrsovayaRabota.Data
 {
-    internal class SEModelView
+    public class SEModelView
     {
         public string CodeSE { get; set; }
 

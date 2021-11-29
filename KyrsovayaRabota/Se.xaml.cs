@@ -167,6 +167,8 @@ namespace KyrsovayaRabota
             //_context.SE.Add(new SE() { CodeSE = this.СodeSeTextBox.Text, NameSE = this.NameSeTextBox.Text, a_max = 0, a_min = 0, a = 0, bo = Convert.ToDouble(this.boTextBox.Text), br = 0, e = 0, F_okr = 0, z0 = 0, h = 0, Ip = 0, m = 0, PsiP = Convert.ToDouble(this.PsiPTextBox.Text), N = Convert.ToDouble(this.NTextBox.Text), q = 0, u = 0, DET_id = _det.CodeDet2TextBox.Text, TrType = this.TrTypeCombobox.Text, del_tk = 0, F_pred = 0, del = 0 });
             _context.SaveChanges();
             Uzel taskWindow=new Uzel(this,_uzel);
+            taskWindow.SeDataGrid.Visibility = Visibility.Visible;
+            taskWindow.SeLabel.Visibility = Visibility.Visible;
             taskWindow.Show();
             this.Hide();
             }

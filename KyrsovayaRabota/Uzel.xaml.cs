@@ -83,14 +83,18 @@ namespace KyrsovayaRabota
             }
             else
             {
-                _context = new AppDbContext();
-                List<UZ> uZlist=new List<UZ>();
-               //for(int i;i<_seModel.Count;i++)
-               //{ 
-               //    uZlist.Add(new UZ() {CodeUz=this.CodeUzTextBox.Text,s };)
-               //}
-               //UZ UzelModel =  
-                Calculating taskWindow = new Calculating(this);
+               // _context = new AppDbContext();
+               // List<UZ> uZlist=new List<UZ>();
+               // List<Se_In_UzSet> seInUzList = new List<Se_In_UzSet>();
+               // for(int i=0;i<_seModel.Count;i++)
+               // {
+               //     uZlist.Add(new UZ() { CodeUz = this.CodeUzTextBox.Text, NameUz = this.UzNameTextBox.Text,NP=_seModel.Count});
+               //     seInUzList.Add(new Se_In_UzSet() {UZCodeUz=this.CodeUzTextBox.Text,SECodeSE=_seModel[i].CodeSE,i=i+1 });
+               // }
+               // _context.UZ.AddRange(uZlist);
+               // _context.Se_In_UzSet.AddRange(seInUzList);
+               // _context.SaveChanges();
+                Calculating taskWindow = new Calculating(this,_seModel);
                 taskWindow.Show();
                 this.Hide();
             }

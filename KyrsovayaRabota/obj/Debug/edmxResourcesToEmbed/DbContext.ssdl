@@ -57,6 +57,7 @@
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="UZCodeUz" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="SECodeSE" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="i" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="Table_1">
     <Key>
@@ -95,7 +96,6 @@
     <Property Name="CodeUz" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="NameUz" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="NP" Type="float" Nullable="false" />
-    <Property Name="i" Type="int" Nullable="false" />
   </EntityType>
   <Association Name="FK_DETDetails_In_SE">
     <End Role="DET" Type="Self.DET" Multiplicity="1" />

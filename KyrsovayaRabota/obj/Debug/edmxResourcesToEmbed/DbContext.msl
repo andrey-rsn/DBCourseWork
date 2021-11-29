@@ -60,6 +60,7 @@
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="UZCodeUz" ColumnName="UZCodeUz" />
           <ScalarProperty Name="SECodeSE" ColumnName="SECodeSE" />
+          <ScalarProperty Name="i" ColumnName="i" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -102,7 +103,6 @@
           <ScalarProperty Name="CodeUz" ColumnName="CodeUz" />
           <ScalarProperty Name="NameUz" ColumnName="NameUz" />
           <ScalarProperty Name="NP" ColumnName="NP" />
-          <ScalarProperty Name="i" ColumnName="i" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

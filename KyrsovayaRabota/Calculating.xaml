@@ -10,7 +10,7 @@
         <DataGrid x:Name="UzDataGrid" HorizontalAlignment="Center" Height="111" Margin="0,217,0,0" VerticalAlignment="Top" Width="498" d:ItemsSource="{d:SampleData ItemCount=5}"/>
         <Label x:Name="UzLabel" Content="Параметры узла" HorizontalAlignment="Left" Height="32" Margin="343,180,0,0" VerticalAlignment="Top" Width="193"/>
         <Button x:Name="BackToMenuButton" Content="Вернуться в главное меню" HorizontalAlignment="Left" Height="48" Margin="32,66,0,0" VerticalAlignment="Top" Width="245" Click="BackToMenuButton_Click"/>
-        <Button x:Name="SaveButton" Content="Сохранить результат в базу данных" HorizontalAlignment="Left" Height="48" Margin="32,13,0,0" VerticalAlignment="Top" Width="245"/>
+        <Button x:Name="SaveButton" Content="Сохранить расчёт в базу данных" HorizontalAlignment="Left" Height="48" Margin="32,13,0,0" VerticalAlignment="Top" Width="245" Click="SaveButton_Click"/>
         <Button x:Name="BackToUzParamsButton" Content="Редактировать параметры узла" HorizontalAlignment="Left" Height="48" Margin="282,13,0,0" VerticalAlignment="Top" Width="245"/>
         <Button x:Name="StaticTableButton" Content="Таблицы статических данных" HorizontalAlignment="Left" Height="48" Margin="282,66,0,0" VerticalAlignment="Top" Width="245"/>
 
