@@ -19,9 +19,18 @@ namespace KyrsovayaRabota
     /// </summary>
     public partial class Calculating : Window
     {
-        public Calculating()
+        private Uzel _uzel;
+        public Calculating(Uzel uzel)
         {
             InitializeComponent();
+            _uzel = uzel;
+        }
+
+        private void BackToMenuButton_Click(object sender, RoutedEventArgs e)
+        {
+            MainWindow taskWindow=new MainWindow();
+            taskWindow.Show();
+            this.Hide();
         }
     }
 }

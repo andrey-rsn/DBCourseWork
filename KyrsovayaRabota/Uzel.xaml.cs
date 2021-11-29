@@ -55,12 +55,45 @@ namespace KyrsovayaRabota
 
         private void AddSeButton_Click(object sender, RoutedEventArgs e)
         {
+            if (this.UzNameTextBox.Text == "" )
+            {
+
+                MessageBox.Show("Заполните обязательные параметры", "Внимание!");
+            }
+            else
+            { 
             Se taskWindow = new Se(this);
             taskWindow.СodeSeTextBox.Text = Guid.NewGuid().ToString();
             taskWindow.СodeSeTextBox.IsReadOnly = true;
             taskWindow.Show();
             Uzel uzelWindow = this;
             uzelWindow.Hide();
+            }
+        }
+
+        private void CalculateButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (this.UzNameTextBox.Text == "")
+            {
+                MessageBox.Show("Заполните обязательные параметры", "Внимание!");
+            }
+            else if (this.SeDataGrid.Visibility == Visibility.Hidden)
+            {
+                MessageBox.Show("Добавьте сборочные единицы", "Внимание!");
+            }
+            else
+            {
+                _context = new AppDbContext();
+                List<UZ> uZlist=new List<UZ>();
+               //for(int i;i<_seModel.Count;i++)
+               //{ 
+               //    uZlist.Add(new UZ() {CodeUz=this.CodeUzTextBox.Text,s };)
+               //}
+               //UZ UzelModel =  
+                Calculating taskWindow = new Calculating(this);
+                taskWindow.Show();
+                this.Hide();
+            }
         }
     }
 }
