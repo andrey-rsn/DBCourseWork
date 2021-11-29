@@ -12,8 +12,8 @@ namespace KyrsovayaRabota.Logic
         {
             AppDbContext _context = new AppDbContext();
             int m;
-             m = (int)Math.Round(Math.Pow(35 * (_N / _n1),(1/3)));
-             if(m==1)
+             m = (int)Math.Round(35*(Math.Pow( (_N / _n1),(1.0/3.0))));
+             if (m==1)
              {
                  m = 2;
              }

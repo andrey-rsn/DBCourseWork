@@ -99,74 +99,30 @@ namespace KyrsovayaRabota
         private void SaveButton_Click(object sender, RoutedEventArgs e)
         {
             _context=new AppDbContext();
-            _n1 =  Convert.ToDouble(this.n1TextBox.Text);//
-            _n2= Convert.ToDouble(this.n2TextBox.Text);//
-            _y= Convert.ToDouble(this.yTextBox.Text);//
-            _CodeDet1 = this.CodeDet1TextBox.Text;
-            _CodeDet2 = this.CodeDet2TextBox.Text;
-            _NameDet1=this.NameDet1TextBox.Text;
-            _NameDet2 = this.NameDet2TextBox.Text;
-            
-            //_context = new KyrsovayaRabotaDBEntities1();
 
-            if (this.yTextBox.Text == ""||this.n1TextBox.Text==""||this.n2TextBox.Text=="")
+            if (this.n1TextBox.Text==""||this.n2TextBox.Text==""||!Double.TryParse(this.n1TextBox.Text,out var a)|| !Double.TryParse(this.n2TextBox.Text, out var b))
             {
-                MessageBox.Show("Заполните обязятельные параметры", "Внимание!");
+                if((!Double.TryParse(this.n1TextBox.Text, out var c)  || !Double.TryParse(this.n2TextBox.Text, out var d))&&(!int.TryParse(this.n1TextBox.Text, out var w) || !int.TryParse(this.n2TextBox.Text, out var f)))
+                {
+                    MessageBox.Show("Параметры заполнены неверно", "Внимание!");
+                }
+                else 
+                {
+                    MessageBox.Show("Заполните обязятельные параметры", "Внимание!");
+                }
+                
             }
             else
             {
-               // _m = (int)Math.Round(Math.Pow(35 * (_N / _n1),(1/3)));
-               // if(_m==1)
-               // {
-               //     _m = 2;
-               // }
-               // _h = Math.Round(0.6 * _m,4);
-               // if(_TrType=="1x7")
-               // {
-               //     _z1 = _context.Table_2.Where(x => x.m == _m && x.n1_l <= _n1 && x.n1_h >= _n1).Select(x => x.z1).FirstOrDefault();
-               // }
-               // else
-               // {
-               //     _z1 = _context.Table_2.Where(x => x.m == _m && x.n1_l <= _n1 && x.n1_h >= _n1 && x.is_suitable == true).Select(x => x.z1).FirstOrDefault();
-               // }
-               //
-               // _q = _context.Table_1.Where(x => x.m == _m && x.TrType == _TrType).Select(x => x.q).FirstOrDefault();
-               //
-               // _Ip= _context.Table_1.Where(x => x.m == _m && x.TrType == _TrType).Select(x => x.Ip).FirstOrDefault();
-               //
-               // _br=_context.Table_3.Where(x=>x.b>=_PsiP*_m).Select(x=>x.b).FirstOrDefault();
-               //
-               // _F_okr = Math.Round((1.91 * Math.Pow(10, 7) * _N / (_z1 * _n1 * _m)),4);
-               //
-               // _C1 = Math.Round((0.15 * _F_okr* _Ip * _z1 / _br),4);//
-               //
-               // _da1 = Math.Round(_m * _z1 - 2 * _bo + _C1,4);//
-               //
-               //
-               // _b = Math.Round(Math.Sqrt((4 * _h / (_da1 * Math.Cos(_y)))),4);//
-               //
-               // _del_tk = Math.Round((0.45 * _F_okr * _Ip / _b),4);
-               //
-               // _e = _context.Table_1.Where(x => x.m == _m && x.TrType == _TrType).Select(x => x.e).FirstOrDefault();
-               //
-               // _n2 = Convert.ToDouble(this.n2TextBox.Text);//
-               //
-               // _u = Math.Round(_n1 / _n2,4);
-               //
-               // _z2 = Math.Round(_z1 * _u,4);//
-               //
-               // _a_min = (0.5 * _m * (_z1 + _z2) + 2 * _m);
-               //
-               // _a_max = (2 * _m * (_z1 + _z2));
-               //
-               // _a = Math.Round((_a_max + _a_min) / 2,4);
-               //
-               // _a1 = Math.Round((180 - (_m * (_z2 - _z1) / _a) * 57.3),4);//
-               //
-               // _z0 = Math.Round(_z1 * _a1 / 360,4);
+                _n1 = Convert.ToDouble(this.n1TextBox.Text);//
+                _n2 = Convert.ToDouble(this.n2TextBox.Text);//
+                _y = 50;
+                _CodeDet1 = this.CodeDet1TextBox.Text;
+                _CodeDet2 = this.CodeDet2TextBox.Text;
+                _NameDet1 = this.NameDet1TextBox.Text;
+                _NameDet2 = this.NameDet2TextBox.Text;
 
-                //_F_pred= ((_h * Math.Tan(_y) - 0.5 * _da1 * (_b - Math.Sin(_b)) + _del_tk)*_b)/ ((_e / _z0) + _Ip);
-                if(_context.DET.Find(_CodeDet1)==null)
+                if (_context.DET.Find(_CodeDet1)==null)
                 { 
                 _context.DET.Add(new DET { CodeDET = _CodeDet1, a1 = 0, b = 0, C1 = 0, da = 0, n1 = _n1, n2 = _n2, NameDET = _NameDet1, y = _y, z1 = 0, z2 = 0 });
                 

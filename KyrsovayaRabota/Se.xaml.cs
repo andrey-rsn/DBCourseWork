@@ -185,14 +185,18 @@ namespace KyrsovayaRabota
         private void SaveSeButton_Click(object sender, RoutedEventArgs e)
         {
             _context = new AppDbContext();
-            if (this.PsiPTextBox.Text == "" || this.TrTypeCombobox.Text == "" || this.boTextBox.Text == "" || this.NTextBox.Text == "" || this.NameSeTextBox.Text == ""||this.DetDataGrid.Visibility==Visibility.Hidden)
+            if (this.PsiPTextBox.Text == "" || this.TrTypeCombobox.Text == "" || this.boTextBox.Text == "" || this.NTextBox.Text == "" || this.NameSeTextBox.Text == ""||this.DetDataGrid.Visibility==Visibility.Hidden||!Double.TryParse(this.PsiPTextBox.Text, out var aa )||!Double.TryParse(this.boTextBox.Text, out var ab)||!Double.TryParse(this.NTextBox.Text, out var bb))
             {
-               if(this.DetDataGrid.Visibility == Visibility.Hidden)
-               {
-                    MessageBox.Show("Добавьте детали", "Внимание!");
-               }
-               else 
-               MessageBox.Show("Заполните обязательные параметры", "Внимание!");
+                if(!Double.TryParse(this.PsiPTextBox.Text, out var aaa) || !Double.TryParse(this.boTextBox.Text, out var aab) || !Double.TryParse(this.NTextBox.Text, out var bbb))
+                {
+                    MessageBox.Show("Параметры введены неверно", "Внимание!");
+                }
+                if(this.DetDataGrid.Visibility == Visibility.Hidden)
+                {
+                     MessageBox.Show("Добавьте детали", "Внимание!");
+                }
+                else 
+                MessageBox.Show("Заполните обязательные параметры", "Внимание!");
             }
             else 
             { 

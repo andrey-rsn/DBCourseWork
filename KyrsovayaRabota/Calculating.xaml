@@ -5,14 +5,14 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:KyrsovayaRabota"
         mc:Ignorable="d"
-        Title="Calculating" Height="450" Width="550">
+        Title="Проверочный расчёт" Height="450" Width="530">
     <Grid>
-        <DataGrid x:Name="UzDataGrid" HorizontalAlignment="Left" Height="111" Margin="29,217,0,0" VerticalAlignment="Top" Width="498" d:ItemsSource="{d:SampleData ItemCount=5}" RowHeaderWidth="0" CanUserAddRows="False" IsReadOnly="True"/>
+        <DataGrid x:Name="UzDataGrid" HorizontalAlignment="Left" Height="111" Margin="10,217,0,0" VerticalAlignment="Top" Width="498" d:ItemsSource="{d:SampleData ItemCount=5}" RowHeaderWidth="0" CanUserAddRows="False" IsReadOnly="True"/>
         <Label x:Name="UzLabel" Content="Параметры узла" HorizontalAlignment="Left" Height="32" Margin="220,180,0,0" VerticalAlignment="Top" Width="193"/>
-        <Button x:Name="BackToMenuButton" Content="Вернуться в главное меню" HorizontalAlignment="Left" Height="48" Margin="32,66,0,0" VerticalAlignment="Top" Width="245" Click="BackToMenuButton_Click"/>
-        <Button x:Name="SaveButton" Content="Сохранить расчёт в базу данных" HorizontalAlignment="Left" Height="48" Margin="32,13,0,0" VerticalAlignment="Top" Width="245" Click="SaveButton_Click"/>
-        <Button x:Name="BackToUzParamsButton" Content="Редактировать параметры узла" HorizontalAlignment="Left" Height="48" Margin="282,13,0,0" VerticalAlignment="Top" Width="245" Click="BackToUzParamsButton_Click"/>
-        <Button x:Name="StaticTableButton" Content="Таблицы статических данных" HorizontalAlignment="Left" Height="48" Margin="282,66,0,0" VerticalAlignment="Top" Width="245" Click="StaticTableButton_Click"/>
+        <Button x:Name="BackToMenuButton" Content="Вернуться в главное меню" HorizontalAlignment="Left" Height="48" Margin="10,66,0,0" VerticalAlignment="Top" Width="245" Click="BackToMenuButton_Click"/>
+        <Button x:Name="SaveButton" Content="Сохранить расчёт в базу данных" HorizontalAlignment="Left" Height="48" Margin="10,13,0,0" VerticalAlignment="Top" Width="245" Click="SaveButton_Click"/>
+        <Button x:Name="BackToUzParamsButton" Content="Редактировать параметры узла" HorizontalAlignment="Left" Height="48" Margin="263,13,0,0" VerticalAlignment="Top" Width="245" Click="BackToUzParamsButton_Click"/>
+        <Button x:Name="StaticTableButton" Content="Таблицы статических данных" HorizontalAlignment="Left" Height="48" Margin="263,66,0,0" VerticalAlignment="Top" Width="245" Click="StaticTableButton_Click"/>
 
     </Grid>
 </Window>

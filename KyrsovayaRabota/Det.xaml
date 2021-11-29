@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:KyrsovayaRabota"
         mc:Ignorable="d"
-        Title="Det" Height="400" Width="1000">
+        Title="Параметры детали" Height="400" Width="1000">
     <Grid>
         <Label x:Name="NameDet1Label" Content="Наименование детали" HorizontalAlignment="Left" Height="35" Margin="41,92,0,0" VerticalAlignment="Top" Width="149"/>
         <Label x:Name="CodeDet1Label" Content="Код детали" HorizontalAlignment="Left" Height="38" Margin="41,33,0,0" VerticalAlignment="Top" Width="149"/>

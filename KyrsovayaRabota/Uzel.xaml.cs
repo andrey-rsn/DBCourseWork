@@ -36,6 +36,7 @@ namespace KyrsovayaRabota
             this.UzNameTextBox.Text = uzel.UzNameTextBox.Text;
             this.CodeUzTextBox.Text = uzel.CodeUzTextBox.Text;
             this.SeDataGrid.Visibility = Visibility.Visible;
+            this.SeLabel.Visibility = Visibility.Visible;
             this.ChangeSeButton.IsEnabled = true;
             this.DeleteSe.IsEnabled = true;
             this.SeDataGrid.ItemsSource = _seModel;
@@ -48,6 +49,7 @@ namespace KyrsovayaRabota
             this.UzNameTextBox.Text = uzel.UzNameTextBox.Text;
             this.CodeUzTextBox.Text = uzel.CodeUzTextBox.Text;
             this.SeDataGrid.Visibility = Visibility.Visible;
+            this.SeLabel.Visibility = Visibility.Visible;
             this.ChangeSeButton.IsEnabled=true;
             this.DeleteSe.IsEnabled = true;
             var seSource = _context.SE.Where(x => x.CodeSE == se.СodeSeTextBox.Text).FirstOrDefault();
