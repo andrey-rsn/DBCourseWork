@@ -1,0 +1,19 @@
+﻿<Window x:Class="KyrsovayaRabota.StaticTables"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:KyrsovayaRabota"
+        mc:Ignorable="d"
+        Title="StaticTables" Height="450" Width="750">
+    <Grid>
+        <DataGrid x:Name="Table1DataGrid" HorizontalAlignment="Left" Height="168" Margin="25,98,0,0" VerticalAlignment="Top" Width="224" d:ItemsSource="{d:SampleData ItemCount=5}" IsReadOnly="True"/>
+        <DataGrid x:Name="Table2DataGrid" HorizontalAlignment="Left" Height="167" Margin="254,99,0,0" VerticalAlignment="Top" Width="256" d:ItemsSource="{d:SampleData ItemCount=5}"/>
+        <DataGrid x:Name="Table3DataGrid" HorizontalAlignment="Left" Height="167" Margin="515,99,0,0" VerticalAlignment="Top" Width="195" d:ItemsSource="{d:SampleData ItemCount=5}"/>
+        <Label Content="Таблица 1" HorizontalAlignment="Left" Height="28" Margin="25,74,0,0" VerticalAlignment="Top" Width="117"/>
+        <Label Content="Таблица 2" HorizontalAlignment="Left" Height="37" Margin="254,75,0,0" VerticalAlignment="Top" Width="147"/>
+        <Label Content="Таблица 3" HorizontalAlignment="Left" Height="36" Margin="515,74,0,0" VerticalAlignment="Top" Width="121"/>
+        <Button x:Name="BackButton" Content="Закрыть" HorizontalAlignment="Left" Height="39" Margin="25,371,0,0" VerticalAlignment="Top" Width="130" Click="BackButton_Click"/>
+
+    </Grid>
+</Window>

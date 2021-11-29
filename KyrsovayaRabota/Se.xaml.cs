@@ -50,6 +50,37 @@ namespace KyrsovayaRabota
             InitializeComponent();
             _uzel = uzel;
         }
+
+        public Se(Uzel uzel,SEModelView sEModelView)
+        {
+            InitializeComponent();
+            _context = new AppDbContext();
+            _uzel = uzel;
+            this.СodeSeTextBox.Text = sEModelView.CodeSE;
+            this.NameSeTextBox.Text = sEModelView.NameSE;
+            this.PsiPTextBox.Text = sEModelView.PsiP.ToString();
+            this.TrTypeCombobox.Text = sEModelView.TrType;
+            this.NTextBox.Text=sEModelView.N.ToString();
+            this.boTextBox.Text=sEModelView.bo.ToString();
+            _det = new Det( sEModelView);
+            this.DetLabel.Visibility = Visibility.Visible;
+            this.DetDataGrid.Visibility = Visibility.Visible;
+            this.AddDetButton.Visibility = Visibility.Hidden;
+            this.ChangeDet.Visibility = Visibility.Visible;
+            var detS = _context.DET.Where(x => x.CodeDET == sEModelView.CodeDet1 || x.CodeDET == sEModelView.CodeDet2).ToList();
+            var sourceList = new List<DETModelView>() { new DETModelView()
+            {
+                CodeDet1=detS[1].CodeDET,
+                CodeDet2=detS[0].CodeDET,
+                NameDet1=detS[1].NameDET,
+                NameDet2=detS[0].NameDET,
+                n1=detS[0].n1,
+                n2=detS[0].n2,
+                y=detS[0].y
+
+            } };
+            this.DetDataGrid.ItemsSource = sourceList;
+        }
         public Se(Det det,Se se)
         {
             InitializeComponent();
@@ -62,6 +93,8 @@ namespace KyrsovayaRabota
             this.NTextBox.Text = se.NTextBox.Text;
             this.DetLabel.Visibility = Visibility.Visible;
             this.DetDataGrid.Visibility = Visibility.Visible;
+            this.AddDetButton.Visibility = Visibility.Hidden;
+            this.ChangeDet.Visibility = Visibility.Visible;
             _se = se;
             _uzel = _se._uzel;
             _det = det;
@@ -152,20 +185,42 @@ namespace KyrsovayaRabota
         private void SaveSeButton_Click(object sender, RoutedEventArgs e)
         {
             _context = new AppDbContext();
-            if (this.PsiPTextBox.Text == "" || this.TrTypeCombobox.Text == "" || this.boTextBox.Text == "" || this.NTextBox.Text == "" || this.NameSeTextBox.Text == "")
+            if (this.PsiPTextBox.Text == "" || this.TrTypeCombobox.Text == "" || this.boTextBox.Text == "" || this.NTextBox.Text == "" || this.NameSeTextBox.Text == ""||this.DetDataGrid.Visibility==Visibility.Hidden)
             {
-               
-                MessageBox.Show("Заполните обязательные параметры", "Внимание!");
+               if(this.DetDataGrid.Visibility == Visibility.Hidden)
+               {
+                    MessageBox.Show("Добавьте детали", "Внимание!");
+               }
+               else 
+               MessageBox.Show("Заполните обязательные параметры", "Внимание!");
             }
-            //_F_pred = Math.Round(((_h * Math.Tan(_y) - 0.5 * _da1 * (_b - Math.Sin(_b)) + _del_tk) * _b) / ((_e / _z0) + _Ip),4);
-            // _del = _F_pred - _F_okr;
             else 
             { 
-            _context.SE.Add(new SE(){ CodeSE=this.СodeSeTextBox.Text,NameSE=this.NameSeTextBox.Text,a_max=0,a_min=0,a=0,bo=Convert.ToDouble(this.boTextBox.Text),br=0,e=0,F_okr=0,z0=0,h=0,Ip=0,m=0,PsiP=Convert.ToDouble(this.PsiPTextBox.Text),N=Convert.ToDouble(this.NTextBox.Text),q=0,u=0,TrType=this.TrTypeCombobox.Text,del_tk=0,F_pred=0,del=0});
-            _context.Details_In_SESet.Add(new Details_In_SESet() { DETCodeDET= _det.CodeDet1TextBox.Text,SECodeSE=this.СodeSeTextBox.Text });
-            _context.Details_In_SESet.Add(new Details_In_SESet() { DETCodeDET = _det.CodeDet2TextBox.Text, SECodeSE = this.СodeSeTextBox.Text });
+               if(_context.SE.Find(this.СodeSeTextBox.Text)==null)
+               { 
+                   _context.SE.Add(new SE(){ CodeSE=this.СodeSeTextBox.Text,NameSE=this.NameSeTextBox.Text,a_max=0,a_min=0,a=0,bo=Convert.ToDouble(this.boTextBox.Text),br=0,e=0,F_okr=0,z0=0,h=0,Ip=0,m=0,PsiP=Convert.ToDouble(this.PsiPTextBox.Text),N=Convert.ToDouble(this.NTextBox.Text),q=0,u=0,TrType=this.TrTypeCombobox.Text,del_tk=0,F_pred=0,del=0});
+                   _context.Details_In_SESet.Add(new Details_In_SESet() { DETCodeDET= _det.CodeDet1TextBox.Text,SECodeSE=this.СodeSeTextBox.Text });
+                   _context.Details_In_SESet.Add(new Details_In_SESet() { DETCodeDET = _det.CodeDet2TextBox.Text, SECodeSE = this.СodeSeTextBox.Text });
+                   _context.SaveChanges();
+               }
+               else
+               {
+                    SE se = _context.SE.Find(this.СodeSeTextBox.Text);
+                    Details_In_SESet details_In_SE1= _context.Details_In_SESet.Where(x=>x.DETCodeDET==_det.CodeDet1TextBox.Text).FirstOrDefault();
+                    Details_In_SESet details_In_SE2 = _context.Details_In_SESet.Where(x => x.DETCodeDET == _det.CodeDet2TextBox.Text).FirstOrDefault();
+                    se.NameSE = this.NameSeTextBox.Text;
+                    se.bo = Convert.ToDouble(this.boTextBox.Text);
+                    se.PsiP = Convert.ToDouble(this.PsiPTextBox.Text);
+                    se.TrType = this.TrTypeCombobox.Text;
+                    se.N = Convert.ToDouble(this.NTextBox.Text);
+                    details_In_SE1.DETCodeDET = _det.CodeDet1TextBox.Text;
+                    details_In_SE1.SECodeSE = this.СodeSeTextBox.Text;
+                    details_In_SE2.DETCodeDET = _det.CodeDet2TextBox.Text;
+                    details_In_SE2.SECodeSE = this.СodeSeTextBox.Text;
+                    _context.SaveChanges();
+                }
             //_context.SE.Add(new SE() { CodeSE = this.СodeSeTextBox.Text, NameSE = this.NameSeTextBox.Text, a_max = 0, a_min = 0, a = 0, bo = Convert.ToDouble(this.boTextBox.Text), br = 0, e = 0, F_okr = 0, z0 = 0, h = 0, Ip = 0, m = 0, PsiP = Convert.ToDouble(this.PsiPTextBox.Text), N = Convert.ToDouble(this.NTextBox.Text), q = 0, u = 0, DET_id = _det.CodeDet2TextBox.Text, TrType = this.TrTypeCombobox.Text, del_tk = 0, F_pred = 0, del = 0 });
-            _context.SaveChanges();
+            
             Uzel taskWindow=new Uzel(this,_uzel);
             taskWindow.SeDataGrid.Visibility = Visibility.Visible;
             taskWindow.SeLabel.Visibility = Visibility.Visible;
@@ -182,7 +237,9 @@ namespace KyrsovayaRabota
 
         private void ChangeDet_Click(object sender, RoutedEventArgs e)
         {
-
+            Det taskWindow = new Det(this,_det);
+            taskWindow.Show();
+            this.Hide();
         }
     }
 }

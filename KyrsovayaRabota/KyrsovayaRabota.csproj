@@ -104,6 +104,9 @@
     <Compile Include="Se_In_UzSet.cs">
       <DependentUpon>DbContext.tt</DependentUpon>
     </Compile>
+    <Compile Include="StaticTables.xaml.cs">
+      <DependentUpon>StaticTables.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Table_1.cs">
       <DependentUpon>DbContext.tt</DependentUpon>
     </Compile>
@@ -140,6 +143,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="Se.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="StaticTables.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

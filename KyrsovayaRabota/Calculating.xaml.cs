@@ -25,6 +25,7 @@ namespace KyrsovayaRabota
         private AppDbContext _context;
         private List<SEModelView> _seModel;
         private List<UzelModelView> _uzelModel;
+        private Calculating _calc;
         private readonly string _TrType;
         private readonly double _PsiP;
         private readonly double _N;
@@ -74,6 +75,16 @@ namespace KyrsovayaRabota
             }
             this.UzDataGrid.ItemsSource = _uzelModel;
         }
+       // public Calculating(Calculating calc)
+       // {
+       //     InitializeComponent();
+       //     _calc = calc;
+       //     _calc.
+       //     _uzel = _calc._uzel;
+       //     _seModel = _calc._seModel;
+       //     _uzelModel = _calc._uzelModel;
+       //     this.UzDataGrid.ItemsSource = _uzelModel;
+       // }
 
         private void BackToMenuButton_Click(object sender, RoutedEventArgs e)
         {
@@ -84,6 +95,14 @@ namespace KyrsovayaRabota
 
         private void SaveButton_Click(object sender, RoutedEventArgs e)
         {
+
+        }
+
+        private void StaticTableButton_Click(object sender, RoutedEventArgs e)
+        {
+            StaticTables taskWindow=new StaticTables(this);
+            taskWindow.Show();
+            
 
         }
     }

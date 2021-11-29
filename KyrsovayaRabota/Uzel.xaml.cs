@@ -34,8 +34,11 @@ namespace KyrsovayaRabota
             _context = new AppDbContext();
             this.UzNameTextBox.Text = uzel.UzNameTextBox.Text;
             this.CodeUzTextBox.Text = uzel.CodeUzTextBox.Text;
+            this.SeDataGrid.Visibility = Visibility.Visible;
+            this.ChangeSeButton.IsEnabled=true;
+            this.DeleteSe.IsEnabled = true;
             var seSource = _context.SE.Where(x => x.CodeSE == se.СodeSeTextBox.Text).FirstOrDefault();
-            var detSource = _context.Details_In_SESet.Join(_context.DET,
+            var detSource = _context.Details_In_SESet.Where(x => x.SECodeSE == se.СodeSeTextBox.Text).Join(_context.DET,
                           p => p.DETCodeDET,
                           t => t.CodeDET,
                           (p,t)=>new {CodeDet=t.CodeDET,NameDet=t.NameDET,y=t.y,n1=t.n1,n2=t.n2}
@@ -48,7 +51,9 @@ namespace KyrsovayaRabota
             }
             else
             {
+
                 _seModel.Add(new SEModelView() { CodeDet1 = detSource[0].CodeDet, NameDet1 = detSource[0].NameDet, CodeDet2 = detSource[1].CodeDet, NameDet2 = detSource[1].NameDet, CodeSE = seSource.CodeSE, NameSE = seSource.NameSE, bo = seSource.bo, N = seSource.N, n1 = detSource[0].n1, n2 = detSource[0].n2, PsiP = seSource.PsiP, TrType = seSource.TrType, y = detSource[0].y });
+
                 this.SeDataGrid.ItemsSource = _seModel;
             }
         }
@@ -98,6 +103,30 @@ namespace KyrsovayaRabota
                 taskWindow.Show();
                 this.Hide();
             }
+        }
+
+        private void ChangeSeButton_Click(object sender, RoutedEventArgs e)
+        {
+            if(this.SeDataGrid.SelectedItem==null)
+            {
+                MessageBox.Show("Выберите в таблице сборочную едницу, которую хотите изменить", "Внимание!");
+            }
+            else
+            {
+                SEModelView _seMod = (SEModelView)this.SeDataGrid.SelectedItem;
+
+                Se taskWindow = new Se(this,_seMod );
+                this._seModel.RemoveAt(this.SeDataGrid.SelectedIndex);
+                taskWindow.Show();
+                this.Hide();
+            }
+        }
+
+        private void BackButton_Click(object sender, RoutedEventArgs e)
+        {
+            MainWindow taskWindow=new MainWindow();
+            taskWindow.Show();
+            this.Hide();
         }
     }
 }

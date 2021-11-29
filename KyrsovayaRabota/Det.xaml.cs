@@ -1,4 +1,5 @@
 ﻿
+using KyrsovayaRabota.Data;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -57,6 +58,17 @@ namespace KyrsovayaRabota
         //private string _CodeSe;
         //private string _NameSe;
 
+        public Det(SEModelView sEModelView)
+        {
+            InitializeComponent();
+            this.n1TextBox.Text = sEModelView.n1.ToString();
+            this.n2TextBox.Text = sEModelView.n2.ToString();
+            this.yTextBox.Text = sEModelView.y.ToString();
+            this.CodeDet1TextBox.Text = sEModelView.CodeDet1.ToString();
+            this.CodeDet2TextBox.Text = sEModelView.CodeDet2.ToString();
+            this.NameDet1TextBox.Text = sEModelView.NameDet1.ToString();
+            this.NameDet2TextBox.Text = sEModelView.NameDet2.ToString();
+        }
         public Det(Se se)
         {
             InitializeComponent();
@@ -68,6 +80,19 @@ namespace KyrsovayaRabota
             //_CodeSe = CodeSe;
             //_NameSe = NameSe;
             //_context = AppDbContext.getContext();
+            _se = se;
+        }
+        
+        public Det(Se se,Det det)
+        {
+            InitializeComponent();
+            this.n1TextBox.Text = det.n1TextBox.Text;
+            this.n2TextBox.Text = det.n2TextBox.Text;
+            this.yTextBox.Text = det.yTextBox.Text;
+            this.CodeDet1TextBox.Text = det.CodeDet1TextBox.Text;
+            this.CodeDet2TextBox.Text = det.CodeDet2TextBox.Text;
+            this.NameDet1TextBox.Text = det.NameDet1TextBox.Text;
+            this.NameDet2TextBox.Text = det.NameDet2TextBox.Text;
             _se = se;
         }
 
@@ -141,10 +166,25 @@ namespace KyrsovayaRabota
                // _z0 = Math.Round(_z1 * _a1 / 360,4);
 
                 //_F_pred= ((_h * Math.Tan(_y) - 0.5 * _da1 * (_b - Math.Sin(_b)) + _del_tk)*_b)/ ((_e / _z0) + _Ip);
-
+                if(_context.DET.Find(_CodeDet1)==null)
+                { 
                 _context.DET.Add(new DET { CodeDET = _CodeDet1, a1 = 0, b = 0, C1 = 0, da = 0, n1 = _n1, n2 = _n2, NameDET = _NameDet1, y = _y, z1 = 0, z2 = 0 });
                 
                 _context.DET.Add(new DET { CodeDET = _CodeDet2, a1 = 0, b = 0, C1 = 0, da = 0, n1 = _n1, n2 = _n2, NameDET = _NameDet2, y = _y, z1 = 0, z2 = 0 });
+                }
+                else
+                {
+                    var detail1 = _context.DET.Find(_CodeDet1);
+                    var detail2 = _context.DET.Find(_CodeDet2);
+                    detail1.n1 = _n1;
+                    detail1.n2 = _n2;
+                    detail1.NameDET = _NameDet1;
+                    detail1.y = _y;
+                    detail2.n1 = _n1;
+                    detail2.n2 = _n2;
+                    detail2.NameDET = _NameDet2;
+                    detail2.y = _y;
+                }
                 _context.SaveChanges();
 
                 // Se taskWindow = new Se(_se,this, _m, _h, _q, _Ip, _br, _F_okr, _del_tk, _e, _u,_a_min, _a_max, _a, _a1, _z0,_y,_da1,_b);
