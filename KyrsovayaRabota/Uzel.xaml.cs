@@ -26,6 +26,19 @@ namespace KyrsovayaRabota
         public Uzel()
         {
             InitializeComponent();
+            
+        }
+        public Uzel(Uzel uzel)
+        {
+            InitializeComponent();
+            _uzel = uzel;
+            _seModel = _uzel._seModel;
+            this.UzNameTextBox.Text = uzel.UzNameTextBox.Text;
+            this.CodeUzTextBox.Text = uzel.CodeUzTextBox.Text;
+            this.SeDataGrid.Visibility = Visibility.Visible;
+            this.ChangeSeButton.IsEnabled = true;
+            this.DeleteSe.IsEnabled = true;
+            this.SeDataGrid.ItemsSource = _seModel;
         }
         public Uzel(Se se,Uzel uzel)
         {
@@ -127,6 +140,39 @@ namespace KyrsovayaRabota
             MainWindow taskWindow=new MainWindow();
             taskWindow.Show();
             this.Hide();
+        }
+
+        private void DeleteSe_Click(object sender, RoutedEventArgs e)
+        {
+            if (this.SeDataGrid.SelectedItem == null)
+            {
+                MessageBox.Show("Выберите в таблице сборочную едницу, которую хотите удалить", "Внимание!");
+            }
+            else
+            {
+                _context=new AppDbContext();
+
+                SEModelView _seMod = (SEModelView)this.SeDataGrid.SelectedItem;
+
+                this._seModel.RemoveAt(this.SeDataGrid.SelectedIndex);
+                _context.Details_In_SESet.Remove(_context.Details_In_SESet.Where(x=>x.DETCodeDET==_seMod.CodeDet1).First());
+                _context.Details_In_SESet.Remove(_context.Details_In_SESet.Where(x => x.DETCodeDET == _seMod.CodeDet2).First());
+                _context.SE.Remove(_context.SE.Find(_seMod.CodeSE));
+                _context.DET.Remove(_context.DET.Where(x => x.CodeDET == _seMod.CodeDet1).First());
+                _context.DET.Remove(_context.DET.Where(x => x.CodeDET == _seMod.CodeDet2).First());
+                _context.SaveChanges();
+                if (_seModel.Count==0)
+                {
+                    this.SeDataGrid.Visibility = Visibility.Hidden;
+                    this.SeLabel.Visibility = Visibility.Hidden;
+                    this.DeleteSe.IsEnabled = false;
+                    this.ChangeSeButton.IsEnabled = false;
+                }
+                this.SeDataGrid.IsEnabled = false;
+                this.SeDataGrid.ItemsSource = _seModel;
+                this.SeDataGrid.IsEnabled = true;
+
+            }
         }
     }
 }

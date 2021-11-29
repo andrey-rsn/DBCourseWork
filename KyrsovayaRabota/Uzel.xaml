@@ -13,12 +13,12 @@
         <TextBox x:Name="CodeUzTextBox" HorizontalAlignment="Left" Height="22" Margin="194,29,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="237"/>
         <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="97" Margin="17,10,0,0" VerticalAlignment="Top" Width="445"/>
         <Button x:Name="AddSeButton" Content="Добавить сборочную единицу" HorizontalAlignment="Left" Height="46" Margin="486,10,0,0" VerticalAlignment="Top" Width="213" Click="AddSeButton_Click"/>
-        <DataGrid x:Name="SeDataGrid" HorizontalAlignment="Left" Height="124" Margin="295,259,0,0" VerticalAlignment="Top" Width="428" d:ItemsSource="{d:SampleData ItemCount=5}" Visibility="Hidden"/>
+        <DataGrid x:Name="SeDataGrid" HorizontalAlignment="Left" Height="124" Margin="295,259,0,0" VerticalAlignment="Top" Width="627" d:ItemsSource="{d:SampleData ItemCount=5}" Visibility="Hidden" VerticalScrollBarVisibility="Disabled" RowHeaderWidth="0" IsReadOnly="True" CanUserAddRows="False" CanUserDeleteRows="False" ScrollViewer.CanContentScroll="True"/>
         <Label x:Name="SeLabel" Content="Сборочные единицы" HorizontalAlignment="Left" Height="38" Margin="427,221,0,0" VerticalAlignment="Top" Width="164" Visibility="Hidden"/>
         <Button x:Name="BackButton" Content="Выйти в главное меню" HorizontalAlignment="Left" Height="46" Margin="712,61,0,0" VerticalAlignment="Top" Width="214" Click="BackButton_Click"/>
         <Button x:Name="ChangeSeButton" Content="Изменить сборочную единицу" HorizontalAlignment="Left" Height="46" Margin="486,61,0,0" VerticalAlignment="Top" Width="213" IsEnabled="False" Click="ChangeSeButton_Click"/>
         <Button x:Name="CalculateButton" Content="Произвести расчёт" HorizontalAlignment="Left" Height="45" Margin="486,122,0,0" VerticalAlignment="Top" Width="440" Click="CalculateButton_Click"/>
-        <Button x:Name="DeleteSe" Content="Удалить сборочную единицу" HorizontalAlignment="Left" Height="46" Margin="713,10,0,0" VerticalAlignment="Top" Width="213" IsEnabled="False"/>
+        <Button x:Name="DeleteSe" Content="Удалить сборочную единицу" HorizontalAlignment="Left" Height="46" Margin="713,10,0,0" VerticalAlignment="Top" Width="213" IsEnabled="False" Click="DeleteSe_Click"/>
 
     </Grid>
 </Window>

@@ -105,5 +105,12 @@ namespace KyrsovayaRabota
             
 
         }
+
+        private void BackToUzParamsButton_Click(object sender, RoutedEventArgs e)
+        {
+            Uzel taskWindow = new Uzel(_uzel);
+            taskWindow.Show();
+            this.Hide();
+        }
     }
 }

@@ -5,15 +5,15 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:KyrsovayaRabota"
         mc:Ignorable="d"
-        Title="StaticTables" Height="450" Width="750">
+        Title="StaticTables" Height="350" Width="750">
     <Grid>
-        <DataGrid x:Name="Table1DataGrid" HorizontalAlignment="Left" Height="168" Margin="25,98,0,0" VerticalAlignment="Top" Width="224" d:ItemsSource="{d:SampleData ItemCount=5}" IsReadOnly="True"/>
-        <DataGrid x:Name="Table2DataGrid" HorizontalAlignment="Left" Height="167" Margin="254,99,0,0" VerticalAlignment="Top" Width="256" d:ItemsSource="{d:SampleData ItemCount=5}"/>
-        <DataGrid x:Name="Table3DataGrid" HorizontalAlignment="Left" Height="167" Margin="515,99,0,0" VerticalAlignment="Top" Width="195" d:ItemsSource="{d:SampleData ItemCount=5}"/>
-        <Label Content="Таблица 1" HorizontalAlignment="Left" Height="28" Margin="25,74,0,0" VerticalAlignment="Top" Width="117"/>
-        <Label Content="Таблица 2" HorizontalAlignment="Left" Height="37" Margin="254,75,0,0" VerticalAlignment="Top" Width="147"/>
-        <Label Content="Таблица 3" HorizontalAlignment="Left" Height="36" Margin="515,74,0,0" VerticalAlignment="Top" Width="121"/>
-        <Button x:Name="BackButton" Content="Закрыть" HorizontalAlignment="Left" Height="39" Margin="25,371,0,0" VerticalAlignment="Top" Width="130" Click="BackButton_Click"/>
+        <DataGrid x:Name="Table1DataGrid" HorizontalAlignment="Left" Height="168" Margin="25,38,0,0" VerticalAlignment="Top" Width="195" d:ItemsSource="{d:SampleData ItemCount=5}" RowHeaderWidth="0" CanUserAddRows="False" CanUserDeleteRows="False"/>
+        <DataGrid x:Name="Table2DataGrid" HorizontalAlignment="Left" Height="167" Margin="254,39,0,0" VerticalAlignment="Top" Width="256" d:ItemsSource="{d:SampleData ItemCount=5}" IsReadOnly="True" RowHeaderWidth="0" CanUserDeleteRows="False" CanUserAddRows="False"/>
+        <DataGrid x:Name="Table3DataGrid" HorizontalAlignment="Left" Height="167" Margin="544,38,0,0" VerticalAlignment="Top" Width="154" d:ItemsSource="{d:SampleData ItemCount=5}" CanUserAddRows="False" CanUserDeleteRows="False" RowHeaderWidth="0" IsReadOnly="True"/>
+        <Label Content="Таблица 1" HorizontalAlignment="Left" Height="28" Margin="25,10,0,0" VerticalAlignment="Top" Width="117"/>
+        <Label Content="Таблица 2" HorizontalAlignment="Left" Height="37" Margin="254,10,0,0" VerticalAlignment="Top" Width="147"/>
+        <Label Content="Таблица 3" HorizontalAlignment="Left" Height="36" Margin="544,11,0,0" VerticalAlignment="Top" Width="121"/>
+        <Button x:Name="BackButton" Content="Закрыть" HorizontalAlignment="Left" Height="39" Margin="25,235,0,0" VerticalAlignment="Top" Width="130" Click="BackButton_Click"/>
 
     </Grid>
 </Window>

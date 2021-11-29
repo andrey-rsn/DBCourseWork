@@ -26,7 +26,7 @@
             <TextBlock>1x21</TextBlock>
         </ComboBox>
         <Label x:Name="DetLabel" Content="Параметры деталей" HorizontalAlignment="Left" Height="30" Margin="335,315,0,0" VerticalAlignment="Top" Width="224" Visibility="Hidden"/>
-        <DataGrid x:Name="DetDataGrid" HorizontalAlignment="Left" Height="64" Margin="158,345,0,0" VerticalAlignment="Top" Width="696" d:ItemsSource="{d:SampleData ItemCount=5}" Visibility="Hidden" CanUserReorderColumns="False"/>
+        <DataGrid x:Name="DetDataGrid" HorizontalAlignment="Left" Height="64" Margin="158,345,0,0" VerticalAlignment="Top" Width="696" d:ItemsSource="{d:SampleData ItemCount=5}" Visibility="Hidden" CanUserReorderColumns="False" IsReadOnly="True" RowHeaderWidth="0" CanUserAddRows="False" CanUserDeleteRows="False"/>
         <Button x:Name="BackButton" Content="Назад" HorizontalAlignment="Left" Height="42" Margin="11,250,0,0" VerticalAlignment="Top" Width="170" Click="BackButton_Click"/>
         <Button x:Name="ChangeDet" Content="Изменить параметры деталей" HorizontalAlignment="Left" Height="42" Margin="10,194,0,0" VerticalAlignment="Top" Width="171" Visibility="Hidden" Click="ChangeDet_Click"/>
         <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="282" Margin="506,10,0,0" VerticalAlignment="Top" Width="462"/>

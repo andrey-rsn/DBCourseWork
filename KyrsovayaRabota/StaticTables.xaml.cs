@@ -19,13 +19,14 @@ namespace KyrsovayaRabota
     /// </summary>
     public partial class StaticTables : Window
     {
+
         Calculating _calc;
-        
         public StaticTables(Calculating calc)
         {
             InitializeComponent();
-            AppDbContext _context=new AppDbContext();
             _calc = calc;
+            AppDbContext _context=new AppDbContext();
+            calc.StaticTableButton.IsEnabled = false;
             this.Table1DataGrid.ItemsSource = _context.Table_1.ToList();
             this.Table2DataGrid.ItemsSource = _context.Table_2.ToList();
             this.Table3DataGrid.ItemsSource = _context.Table_3.ToList();
@@ -33,6 +34,7 @@ namespace KyrsovayaRabota
 
         private void BackButton_Click(object sender, RoutedEventArgs e)
         {
+            _calc.StaticTableButton.IsEnabled = true;
             this.Hide();
         }
     }
