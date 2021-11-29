@@ -17,6 +17,7 @@ namespace KyrsovayaRabota
         public int Id { get; set; }
         public string UZCodeUz { get; set; }
         public string SECodeSE { get; set; }
+        public int i { get; set; }
     
         public virtual SE SE { get; set; }
         public virtual UZ UZ { get; set; }

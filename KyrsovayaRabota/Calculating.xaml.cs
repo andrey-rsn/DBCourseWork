@@ -20,10 +20,12 @@ namespace KyrsovayaRabota
     public partial class Calculating : Window
     {
         private Uzel _uzel;
+        private AppDbContext _context;
         public Calculating(Uzel uzel)
         {
             InitializeComponent();
             _uzel = uzel;
+
         }
 
         private void BackToMenuButton_Click(object sender, RoutedEventArgs e)

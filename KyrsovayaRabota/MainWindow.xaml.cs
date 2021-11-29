@@ -37,7 +37,7 @@ namespace KyrsovayaRabota
       //
         private void Button1_Click_1(object sender, RoutedEventArgs e)
         {
-            var a = new UZ { CodeUz = Guid.NewGuid().ToString(), NameUz = "uzel1", i = 3, NP = 14 };
+           // var a = new UZ { CodeUz = Guid.NewGuid().ToString(), NameUz = "uzel1", i = 3, NP = 14 };
             //_context.UZ.Add(a);
             //DataGrid1.ItemsSource =  _context.Table_1.ToList();
           // _context.SaveChanges();
