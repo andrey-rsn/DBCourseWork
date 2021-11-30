@@ -49,6 +49,7 @@
     <Property Name="a_min" Type="float" Nullable="false" />
     <Property Name="a_max" Type="float" Nullable="false" />
     <Property Name="del" Type="float" Nullable="false" />
+    <Property Name="Dost" Type="bit" />
   </EntityType>
   <EntityType Name="Se_In_UzSet">
     <Key>

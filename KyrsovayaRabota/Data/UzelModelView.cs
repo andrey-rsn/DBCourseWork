@@ -6,8 +6,10 @@ using System.Threading.Tasks;
 
 namespace KyrsovayaRabota.Data
 {
+
     public class UzelModelView
     {
+
         public string NameUz { get; set; }
 
         public string CodeUz { get; set; }
@@ -24,10 +26,6 @@ namespace KyrsovayaRabota.Data
 
         public double del_tk { get; set; }
 
-        public double del { get; set; }
-
-        public double F_pred { get; set; }
-
         public double h { get; set; }
 
         public int m { get; set; }
@@ -39,8 +37,6 @@ namespace KyrsovayaRabota.Data
         public double br { get; set; }
 
         public double PsiP { get; set; }
-
-        public double F_okr { get; set; }
 
         public double Ip { get; set; }
 
@@ -84,6 +80,13 @@ namespace KyrsovayaRabota.Data
 
         public double n2 { get; set; }
 
+        public double F_pred { get; set; }
+
+        public double F_okr { get; set; }
+
+        public double del { get; set; }
+
+        public string Dost { get; set; }
 
     }
 }

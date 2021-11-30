@@ -51,6 +51,7 @@
           <ScalarProperty Name="a_min" ColumnName="a_min" />
           <ScalarProperty Name="a_max" ColumnName="a_max" />
           <ScalarProperty Name="del" ColumnName="del" />
+          <ScalarProperty Name="Dost" ColumnName="Dost" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

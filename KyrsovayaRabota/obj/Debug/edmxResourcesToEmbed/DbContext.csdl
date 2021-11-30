@@ -52,6 +52,7 @@
     <Property Name="a_min" Type="Double" Nullable="false" />
     <Property Name="a_max" Type="Double" Nullable="false" />
     <Property Name="del" Type="Double" Nullable="false" />
+    <Property Name="Dost" Type="Boolean" />
     <NavigationProperty Name="Details_In_SESet" Relationship="Self.FK_SEDetails_In_SE" FromRole="SE" ToRole="Details_In_SESet" />
     <NavigationProperty Name="Se_In_UzSet" Relationship="Self.FK_SESe_In_Uz" FromRole="SE" ToRole="Se_In_UzSet" />
   </EntityType>

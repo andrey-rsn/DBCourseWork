@@ -60,6 +60,8 @@ namespace KyrsovayaRabota
         private string _CodeSe;
         private string _NameSe;
         private double _del;
+        private bool _Dost;
+        private string _DostStr;
 
         public Calculating(Uzel uzel,List<SEModelView> seModel)
         {
@@ -70,8 +72,17 @@ namespace KyrsovayaRabota
             _uzelModel= new List<UzelModelView>();
             for(int i=0;i<_seModel.Count;i++)
             {
-                CalcUzel.CalcUzelParam(_seModel[i].N, _seModel[i].n1, _seModel[i].n2, _seModel[i].TrType, _seModel[i].PsiP, _seModel[i].bo, _seModel[i].y, out _m, out _h, out _z1, out _q, out _Ip, out _br, out _F_okr, out _C1, out _da1, out _b, out _del_tk, out _e, out _u, out _z2, out _a, out _a_min, out _a_max, out _a1, out _z0, out _F_pred,out _del);
-                _uzelModel.Add(new UzelModelView() { CodeDet1= _seModel[i].CodeDet1,CodeDet2= _seModel[i].CodeDet2,NameDet1= _seModel[i].NameDet1,NameDet2= _seModel[i].NameDet2,NameSe= _seModel[i].NameSE,CodeSe= _seModel[i].CodeSE,CodeUz=_uzel.CodeUzTextBox.Text,NameUz=_uzel.UzNameTextBox.Text,a=_a,a1=_a1,a_max=_a_max,a_min=_a_min,b=_b,bo= _seModel[i].bo,PsiP= _seModel[i].PsiP,TrType= _seModel[i].TrType,N= _seModel[i].N,y= _seModel[i].y,n1= _seModel[i].n1, n2=_seModel[i].n2,br=_br,C1=_C1,da1=_da1,del=_del,del_tk=_del_tk,e=_e,F_okr=_F_okr,F_pred=_F_pred,h=_h,i=i,Ip=_Ip,m=_m,NP=_seModel.Count,q=_q,u=_u,z0=_z0,z1=_z1,z2=_z2 });
+                CalcUzel.CalcUzelParam(_seModel[i].N, _seModel[i].n1, _seModel[i].n2, _seModel[i].TrType, _seModel[i].PsiP, _seModel[i].bo, _seModel[i].y, out _m, out _h, out _z1, out _q, out _Ip, out _br, out _F_okr, out _C1, out _da1, out _b, out _del_tk, out _e, out _u, out _z2, out _a, out _a_min, out _a_max, out _a1, out _z0, out _F_pred,out _del,out _Dost);
+                if(_Dost)
+                {
+                    _DostStr = "Расчёт достоверен";
+                }
+                else
+                {
+                    _DostStr = "Расчёт недостоверен";
+                }
+                
+                _uzelModel.Add(new UzelModelView() { CodeDet1= _seModel[i].CodeDet1,CodeDet2= _seModel[i].CodeDet2,NameDet1= _seModel[i].NameDet1,NameDet2= _seModel[i].NameDet2,NameSe= _seModel[i].NameSE,CodeSe= _seModel[i].CodeSE,CodeUz=_uzel.CodeUzTextBox.Text,NameUz=_uzel.UzNameTextBox.Text,a=_a,a1=_a1,a_max=_a_max,a_min=_a_min,b=_b,bo= _seModel[i].bo,PsiP= _seModel[i].PsiP,TrType= _seModel[i].TrType,N= _seModel[i].N,y= _seModel[i].y,n1= _seModel[i].n1, n2=_seModel[i].n2,br=_br,C1=_C1,da1=_da1,del=_del,del_tk=_del_tk,e=_e,F_okr=_F_okr,F_pred=_F_pred,h=_h,i=i,Ip=_Ip,m=_m,NP=_seModel.Count,q=_q,u=_u,z0=_z0,z1=_z1,z2=_z2 ,Dost= _DostStr });
             }
             this.UzDataGrid.ItemsSource = _uzelModel;
         }
@@ -95,6 +106,24 @@ namespace KyrsovayaRabota
 
         private void SaveButton_Click(object sender, RoutedEventArgs e)
         {
+            _context = new AppDbContext();
+            for(int i=0;i<_uzelModel.Count;i++)
+            {
+                var res = _context.Se_In_UzSet.Where(x => x.SECodeSE == _uzelModel[i].CodeSe && x.UZCodeUz == _uzelModel[i].CodeUz).FirstOrDefault();
+                if(res == null)
+                {
+                    _context.UZ.Add(new UZ() { CodeUz=_uzelModel[i].CodeUz,NameUz=_uzelModel[i].NameUz,NP=_uzelModel[i].NP});
+                    _context.Se_In_UzSet.Add(new Se_In_UzSet() { SECodeSE=_uzelModel[i].CodeSe,UZCodeUz=_uzelModel[i].CodeUz,i=_uzelModel[i].i});
+                }
+                else
+                {
+                    var uzRes = _context.UZ.Where(x => x.CodeUz == _uzelModel[i].CodeUz).FirstOrDefault();
+                    uzRes.NameUz = _uzelModel[i].NameUz;
+                    uzRes.NP = _uzelModel[i].NP;
+                }
+                _context.SaveChanges();
+            }
+
 
         }
 

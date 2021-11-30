@@ -42,6 +42,7 @@ namespace KyrsovayaRabota
         public double a_min { get; set; }
         public double a_max { get; set; }
         public double del { get; set; }
+        public Nullable<bool> Dost { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Details_In_SESet> Details_In_SESet { get; set; }
