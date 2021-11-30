@@ -88,6 +88,14 @@ namespace KyrsovayaRabota {
         #line default
         #line hidden
         
+        
+        #line 16 "..\..\Calculating.xaml"
+        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
+        internal System.Windows.Controls.Button OtchetButton;
+        
+        #line default
+        #line hidden
+        
         private bool _contentLoaded;
         
         /// <summary>
@@ -159,6 +167,9 @@ namespace KyrsovayaRabota {
             
             #line default
             #line hidden
+            return;
+            case 7:
+            this.OtchetButton = ((System.Windows.Controls.Button)(target));
             return;
             }
             this._contentLoaded = true;

@@ -13,6 +13,7 @@
         <Button x:Name="SaveButton" Content="Сохранить расчёт в базу данных" HorizontalAlignment="Left" Height="48" Margin="10,13,0,0" VerticalAlignment="Top" Width="245" Click="SaveButton_Click"/>
         <Button x:Name="BackToUzParamsButton" Content="Редактировать параметры узла" HorizontalAlignment="Left" Height="48" Margin="263,13,0,0" VerticalAlignment="Top" Width="245" Click="BackToUzParamsButton_Click"/>
         <Button x:Name="StaticTableButton" Content="Таблицы статических данных" HorizontalAlignment="Left" Height="48" Margin="263,66,0,0" VerticalAlignment="Top" Width="245" Click="StaticTableButton_Click"/>
+        <Button x:Name="OtchetButton" Content="Отчёт по расчету" HorizontalAlignment="Left" Height="56" Margin="10,119,0,0" VerticalAlignment="Top" Width="498"/>
 
     </Grid>
 </Window>

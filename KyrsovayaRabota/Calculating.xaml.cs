@@ -107,22 +107,25 @@ namespace KyrsovayaRabota
         private void SaveButton_Click(object sender, RoutedEventArgs e)
         {
             _context = new AppDbContext();
-            for(int i=0;i<_uzelModel.Count;i++)
+            for(int k=0;k<_uzelModel.Count;k++)
             {
-                var res = _context.Se_In_UzSet.Where(x => x.SECodeSE == _uzelModel[i].CodeSe && x.UZCodeUz == _uzelModel[i].CodeUz).FirstOrDefault();
+                var codeSeThis = _uzelModel[k].CodeSe;
+                var codeUzThis = _uzelModel[k].CodeUz;
+                var res = _context.Se_In_UzSet.Where(x => x.SECodeSE == codeSeThis && x.UZCodeUz == codeUzThis).FirstOrDefault();
                 if(res == null)
                 {
-                    _context.UZ.Add(new UZ() { CodeUz=_uzelModel[i].CodeUz,NameUz=_uzelModel[i].NameUz,NP=_uzelModel[i].NP});
-                    _context.Se_In_UzSet.Add(new Se_In_UzSet() { SECodeSE=_uzelModel[i].CodeSe,UZCodeUz=_uzelModel[i].CodeUz,i=_uzelModel[i].i});
+                    _context.UZ.Add(new UZ() { CodeUz=_uzelModel[k].CodeUz,NameUz=_uzelModel[k].NameUz,NP=_uzelModel[k].NP});
+                    _context.Se_In_UzSet.Add(new Se_In_UzSet() { SECodeSE=_uzelModel[k].CodeSe,UZCodeUz=_uzelModel[k].CodeUz,i=_uzelModel[k].i});
                 }
                 else
                 {
-                    var uzRes = _context.UZ.Where(x => x.CodeUz == _uzelModel[i].CodeUz).FirstOrDefault();
-                    uzRes.NameUz = _uzelModel[i].NameUz;
-                    uzRes.NP = _uzelModel[i].NP;
+                    var uzRes = _context.UZ.Where(x => x.CodeUz == codeUzThis).FirstOrDefault();
+                    uzRes.NameUz = _uzelModel[k].NameUz;
+                    uzRes.NP = _uzelModel[k].NP;
                 }
                 _context.SaveChanges();
             }
+            MessageBox.Show("Расчёт успешно сохранён в базе данных");
 
 
         }

@@ -20,28 +20,15 @@ namespace KyrsovayaRabota
     /// </summary>
     public partial class MainWindow : Window
     {
-        //private KyrsovayaRabotaDBEntities1 _context;
+        AppDbContext _context;
         public MainWindow()
         {
             InitializeComponent();
-            //_context=KyrsovayaRabotaDBEntities1.getContext();
+
+            _context = new AppDbContext();
+            this.CalcList.ItemsSource = _context.UZ.ToDictionary(x=>x.CodeUz,k=>k.NameUz);
         }
-      // public static KyrsovayaRabotaDBEntities1 _context;
-      //
-      // public static KyrsovayaRabotaDBEntities1 getContext()
-      // {
-      //     if (_context == null)
-      //         _context = new KyrsovayaRabotaDBEntities1();
-      //     return _context;
-      // }
-      //
-        private void Button1_Click_1(object sender, RoutedEventArgs e)
-        {
-           // var a = new UZ { CodeUz = Guid.NewGuid().ToString(), NameUz = "uzel1", i = 3, NP = 14 };
-            //_context.UZ.Add(a);
-            //DataGrid1.ItemsSource =  _context.Table_1.ToList();
-          // _context.SaveChanges();
-        }
+      
 
         private void GoToUzButton_Click(object sender, RoutedEventArgs e)
         {
