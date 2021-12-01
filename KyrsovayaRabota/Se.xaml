@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:KyrsovayaRabota"
         mc:Ignorable="d"
-        Title="Параметры сборочной единицы" Height="600" Width="1000">
+        Title="Параметры сборочной единицы" Height="550" Width="1000">
     <Grid>
         <Label x:Name="CodeSeLabel" Content="Код сборочной единицы" HorizontalAlignment="Left" Height="34" Margin="25,23,0,0" VerticalAlignment="Top" Width="185"/>
         <Label x:Name="NameSeLabel" Content="Название сборочной единицы" HorizontalAlignment="Left" Height="35" Margin="25,62,0,0" VerticalAlignment="Top" Width="185"/>

@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:KyrsovayaRabota"
         mc:Ignorable="d"
-        Title="Параметры виртуального узла" Height="800" Width="1200">
+        Title="Параметры виртуального узла" Height="500" Width="1000">
     <Grid Margin="0,0,0,-6">
         <Label Content="Код узла" HorizontalAlignment="Left" Height="26" Margin="26,25,0,0" VerticalAlignment="Top" Width="106"/>
         <Label Content="Наименование узла" HorizontalAlignment="Left" Height="28" Margin="26,56,0,0" VerticalAlignment="Top" Width="128"/>
