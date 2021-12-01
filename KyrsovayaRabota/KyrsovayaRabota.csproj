@@ -64,6 +64,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Analysis.xaml.cs">
+      <DependentUpon>Analysis.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Calculating.xaml.cs">
       <DependentUpon>Calculating.xaml</DependentUpon>
     </Compile>
@@ -122,6 +125,10 @@
     <Compile Include="Uzel.xaml.cs">
       <DependentUpon>Uzel.xaml</DependentUpon>
     </Compile>
+    <Page Include="Analysis.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Calculating.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

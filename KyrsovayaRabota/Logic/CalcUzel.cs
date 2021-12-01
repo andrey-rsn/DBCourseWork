@@ -49,7 +49,7 @@ namespace KyrsovayaRabota.Logic
                    m++;
                 }
                 _h = Math.Round(0.6 * m,4);
-                if(_TrType=="1x7")
+                if(_TrType.Replace(" ", "")== "1x7")
                 {
                     _z1 = _context.Table_2.Where(x => x.m == m && x.n1_l <= _n1 && x.n1_h >= _n1).Select(x => x.z1).FirstOrDefault();
                 }
@@ -89,11 +89,15 @@ namespace KyrsovayaRabota.Logic
                 _C1 = Math.Round((0.15 * _F_okr* _Ip * _z1 / _br),4);//
             
                 _da1 = Math.Round(m * _z1 - 2 * _bo + _C1,4);//
+                 if(_da1<=0)
+                {
+                    _Dost = false;
+                    break;
+                }
             
+                _b = Math.Round(Math.Sqrt((4 * _h / (_da1 * Math.Round(Math.Cos(_y*Math.PI/180),4)))),4);//
             
-                _b = Math.Round(Math.Sqrt((4 * _h / (_da1 * Math.Cos(_y)))),4);//
-            
-                _del_tk = Math.Round((0.45 * _F_okr * _Ip / _b),4);
+                _del_tk = Math.Round((0.45 * _F_okr * _Ip / _br),4);
             
                 _e = _context.Table_1.Where(x => x.m == m && x.TrType == _TrType).Select(x => x.e).FirstOrDefault();
                 if (_e == 0)
@@ -106,7 +110,7 @@ namespace KyrsovayaRabota.Logic
 
                 _u = Math.Round(_n1 / _n2,4);
             
-                _z2 = Math.Round(_z1 * _u,4);//
+                _z2 = Math.Round(_z1 * _u);//
             
                 _a_min = (0.5 * m * (_z1 + _z2) + 2 * m);
             
@@ -116,10 +120,10 @@ namespace KyrsovayaRabota.Logic
             
                 _a1 = Math.Round((180 - (m * (_z2 - _z1) / _a) * 57.3),4);//
             
-                _z0 = Math.Round(_z1 * _a1 / 360,4);
+                _z0 = Math.Round(_z1 * _a1 / 360);
                 _m = m;
 
-                _F_pred= Math.Round(((_h * Math.Tan(_y) - 0.5 * _da1 * (_b - Math.Sin(_b)) + _del_tk)*_b)/ ((_e / _z0) + _Ip),4);
+                _F_pred= Math.Round(((_h * Math.Tan(_y * Math.PI / 180) - 0.5 * _da1 * (_b - Math.Sin(_b * Math.PI / 180)) + _del_tk)*_br)/ ((_e / _z0) + _Ip),4);
 
                 _del = _F_pred - _F_okr;
                 if(_del>=0)

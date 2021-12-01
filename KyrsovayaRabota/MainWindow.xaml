@@ -11,7 +11,7 @@
         <Button x:Name="GoToUzButton" Content="Начать новый расчёт" HorizontalAlignment="Center" Margin="0,102,0,0" VerticalAlignment="Top" Height="36" Width="216" Click="GoToUzButton_Click" RenderTransformOrigin="0.501,0.599"/>
         <Button x:Name="ExitButton" Content="Выход" HorizontalAlignment="Center" Height="34" Margin="0,211,0,0" VerticalAlignment="Top" Width="216" Click="ExitButton_Click"/>
         <ComboBox x:Name="CalcList" HorizontalAlignment="Center" Height="22" Margin="0,184,0,0" VerticalAlignment="Top" Width="216"/>
-        <Button x:Name="DownloadButton" Content="Загрузить расчёт из базы данных" HorizontalAlignment="Center" Height="36" Margin="0,143,0,0" VerticalAlignment="Top" Width="216"/>
+        <Button x:Name="DownloadButton" Content="Загрузить расчёт из базы данных" HorizontalAlignment="Center" Height="36" Margin="0,143,0,0" VerticalAlignment="Top" Width="216" Click="DownloadButton_Click"/>
 
     </Grid>
 </Window>

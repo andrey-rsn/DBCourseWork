@@ -31,3 +31,5 @@ G:\VisualProjects\KyrsovayaWorkDB\KyrsovayaRabota\KyrsovayaRabota\obj\Debug\Calc
 G:\VisualProjects\KyrsovayaWorkDB\KyrsovayaRabota\KyrsovayaRabota\obj\Debug\Calculating.baml
 G:\VisualProjects\KyrsovayaWorkDB\KyrsovayaRabota\KyrsovayaRabota\obj\Debug\StaticTables.g.cs
 G:\VisualProjects\KyrsovayaWorkDB\KyrsovayaRabota\KyrsovayaRabota\obj\Debug\StaticTables.baml
+G:\VisualProjects\KyrsovayaWorkDB\KyrsovayaRabota\KyrsovayaRabota\obj\Debug\Analysis.g.cs
+G:\VisualProjects\KyrsovayaWorkDB\KyrsovayaRabota\KyrsovayaRabota\obj\Debug\Analysis.baml

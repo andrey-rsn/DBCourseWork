@@ -24,7 +24,6 @@ namespace KyrsovayaRabota
         public MainWindow()
         {
             InitializeComponent();
-
             _context = new AppDbContext();
             this.CalcList.ItemsSource = _context.UZ.ToDictionary(x=>x.CodeUz,k=>k.NameUz);
         }
@@ -43,6 +42,20 @@ namespace KyrsovayaRabota
         private void ExitButton_Click(object sender, RoutedEventArgs e)
         {
             System.Windows.Application.Current.Shutdown();
+        }
+
+        private void DownloadButton_Click(object sender, RoutedEventArgs e)
+        {
+            if(this.CalcList.Text=="")
+            {
+                MessageBox.Show("Выберите из списка расчёт, который хотите загрузить", "Внимание!");
+            }
+            else
+            {
+                Uzel taskWindow = new Uzel(this.CalcList.Text);
+                taskWindow.Show();
+                this.Hide();
+            }
         }
     }
 }

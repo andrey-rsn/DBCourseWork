@@ -28,6 +28,24 @@ namespace KyrsovayaRabota
             InitializeComponent();
             
         }
+        public Uzel(string CodeUz)
+        {
+            _context=new AppDbContext();
+            _uzel = this;
+            var thisUz = _context.UZ.Find(CodeUz);
+            this.UzNameTextBox.Text = thisUz.NameUz;
+            this.CodeUzTextBox.Text = thisUz.CodeUz;
+           //var seSource = _context.Se_In_UzSet.Where(x => x.UZCodeUz == thisUz.CodeUz).Join(_context.SE,
+           //              p => p.SECodeSE,
+           //              t => t.CodeSE,
+           //              (p, t) => new { CodeDet = t.CodeDET, NameDet = t.NameDET, y = t.y, n1 = t.n1, n2 = t.n2 }
+           //              ).ToList();
+            this.SeDataGrid.Visibility = Visibility.Visible;
+            this.SeLabel.Visibility = Visibility.Visible;
+            this.ChangeSeButton.IsEnabled = true;
+            this.DeleteSe.IsEnabled = true;
+            this.SeDataGrid.ItemsSource = _seModel;
+        }
         public Uzel(Uzel uzel)
         {
             InitializeComponent();

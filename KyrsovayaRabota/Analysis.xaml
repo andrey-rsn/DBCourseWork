@@ -7,6 +7,9 @@
         mc:Ignorable="d"
         Title="Analysis" Height="450" Width="800">
     <Grid>
-        
+        <Label Content="Отчет по расчету передачи" HorizontalAlignment="Left" Height="48" Margin="283,10,0,0" VerticalAlignment="Top" Width="323"/>
+        <Label Content="Название сборочной единицы SeName" HorizontalAlignment="Left" Height="31" Margin="29,58,0,0" VerticalAlignment="Top" Width="230"/>
+        <Label Content="Код сборочной единицы CodeSe" HorizontalAlignment="Left" Margin="29,94,0,0" VerticalAlignment="Top" Width="230"/>
+
     </Grid>
 </Window>
