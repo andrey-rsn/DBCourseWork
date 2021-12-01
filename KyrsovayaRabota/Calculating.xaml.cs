@@ -106,24 +106,33 @@ namespace KyrsovayaRabota
 
         private void SaveButton_Click(object sender, RoutedEventArgs e)
         {
+            bool uzIsAdded=false;
             _context = new AppDbContext();
+            var uzEntity = _context.UZ.Find(_uzelModel[0].CodeUz);
             for(int k=0;k<_uzelModel.Count;k++)
             {
+                
                 var codeSeThis = _uzelModel[k].CodeSe;
                 var codeUzThis = _uzelModel[k].CodeUz;
                 var res = _context.Se_In_UzSet.Where(x => x.SECodeSE == codeSeThis && x.UZCodeUz == codeUzThis).FirstOrDefault();
                 if(res == null)
                 {
-                    _context.UZ.Add(new UZ() { CodeUz=_uzelModel[k].CodeUz,NameUz=_uzelModel[k].NameUz,NP=_uzelModel[k].NP});
+                    if(uzEntity==null&& uzIsAdded==false)
+                    {
+                        _context.UZ.Add(new UZ() { CodeUz=_uzelModel[k].CodeUz,NameUz=_uzelModel[k].NameUz,NP=_uzelModel[k].NP}); 
+                        uzIsAdded=true;
+                    }
                     _context.Se_In_UzSet.Add(new Se_In_UzSet() { SECodeSE=_uzelModel[k].CodeSe,UZCodeUz=_uzelModel[k].CodeUz,i=_uzelModel[k].i});
+                    _context.SaveChanges();
                 }
-                else
-                {
-                    var uzRes = _context.UZ.Where(x => x.CodeUz == codeUzThis).FirstOrDefault();
-                    uzRes.NameUz = _uzelModel[k].NameUz;
-                    uzRes.NP = _uzelModel[k].NP;
-                }
-                _context.SaveChanges();
+               //else
+               //{
+               //    //var uzRes = _context.UZ.Where(x => x.CodeUz == codeUzThis).FirstOrDefault();
+               //    //uzRes.NameUz = _uzelModel[k].NameUz;
+               //    //uzRes.NP = _uzelModel[k].NP;
+               //    
+               //}
+                
             }
             MessageBox.Show("Расчёт успешно сохранён в базе данных");
 

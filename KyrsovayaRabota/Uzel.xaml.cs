@@ -174,7 +174,7 @@ namespace KyrsovayaRabota
 
                 SEModelView _seMod = (SEModelView)this.SeDataGrid.SelectedItem;
 
-                this._seModel.RemoveAt(this.SeDataGrid.SelectedIndex);
+                _seModel.Remove(_seModel.Where(x=>x.CodeSE==_seMod.CodeSE).First());
                 _context.Details_In_SESet.Remove(_context.Details_In_SESet.Where(x=>x.DETCodeDET==_seMod.CodeDet1).First());
                 _context.Details_In_SESet.Remove(_context.Details_In_SESet.Where(x => x.DETCodeDET == _seMod.CodeDet2).First());
                 _context.SE.Remove(_context.SE.Find(_seMod.CodeSE));
@@ -188,6 +188,7 @@ namespace KyrsovayaRabota
                     this.DeleteSe.IsEnabled = false;
                     this.ChangeSeButton.IsEnabled = false;
                 }
+                this.SeDataGrid.ItemsSource = null;
                 this.SeDataGrid.IsEnabled = false;
                 this.SeDataGrid.ItemsSource = _seModel;
                 this.SeDataGrid.IsEnabled = true;
