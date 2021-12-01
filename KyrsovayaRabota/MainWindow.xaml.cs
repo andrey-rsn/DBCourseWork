@@ -52,7 +52,8 @@ namespace KyrsovayaRabota
             }
             else
             {
-                Uzel taskWindow = new Uzel(this.CalcList.Text);
+
+                Uzel taskWindow = new Uzel(this.CalcList.Text.Substring(1, this.CalcList.Text.IndexOf(',') - 1));
                 taskWindow.Show();
                 this.Hide();
             }

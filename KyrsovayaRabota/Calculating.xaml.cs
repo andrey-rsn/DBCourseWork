@@ -153,5 +153,11 @@ namespace KyrsovayaRabota
             taskWindow.Show();
             this.Hide();
         }
+
+        private void OtchetButton_Click(object sender, RoutedEventArgs e)
+        {
+            Analysis taskWindow = new Analysis();
+            taskWindow.Show();
+        }
     }
 }

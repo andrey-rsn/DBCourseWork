@@ -26,15 +26,22 @@ namespace KyrsovayaRabota
             InitializeComponent();
             _calc = calc;
             AppDbContext _context=new AppDbContext();
-            calc.StaticTableButton.IsEnabled = false;
+            //calc.StaticTableButton.IsEnabled = false;
+
             this.Table1DataGrid.ItemsSource = _context.Table_1.ToList();
+            //this.Table1DataGrid.Height = this.Table1DataGrid.RowHeight;
+           //this.Table1DataGrid.Width = this.Table1DataGrid.RowHeaderWidth;
+
             this.Table2DataGrid.ItemsSource = _context.Table_2.ToList();
+            //this.Table2DataGrid.Height = this.Table2DataGrid.RowHeight;
+
             this.Table3DataGrid.ItemsSource = _context.Table_3.ToList();
+            //this.Table3DataGrid.Height = this.Table3DataGrid.RowHeight;
         }
 
         private void BackButton_Click(object sender, RoutedEventArgs e)
         {
-            _calc.StaticTableButton.IsEnabled = true;
+            //_calc.StaticTableButton.IsEnabled = true;
             this.Hide();
         }
     }

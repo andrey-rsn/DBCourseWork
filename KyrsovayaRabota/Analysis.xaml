@@ -5,11 +5,45 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:KyrsovayaRabota"
         mc:Ignorable="d"
-        Title="Analysis" Height="450" Width="800">
-    <Grid>
+        Title="Analysis" Height="1000" Width="800">
+    <Grid IsManipulationEnabled="True" ScrollViewer.CanContentScroll="True" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
         <Label Content="Отчет по расчету передачи" HorizontalAlignment="Left" Height="48" Margin="283,10,0,0" VerticalAlignment="Top" Width="323"/>
-        <Label Content="Название сборочной единицы SeName" HorizontalAlignment="Left" Height="31" Margin="29,58,0,0" VerticalAlignment="Top" Width="230"/>
-        <Label Content="Код сборочной единицы CodeSe" HorizontalAlignment="Left" Margin="29,94,0,0" VerticalAlignment="Top" Width="230"/>
+        <Label Content="Название сборочной единицы SeName" HorizontalAlignment="Left" Height="31" Margin="23,119,0,0" VerticalAlignment="Top" Width="377"/>
+        <Label Content="Код сборочной единицы CodeSe" HorizontalAlignment="Left" Margin="23,88,0,0" VerticalAlignment="Top" Width="377"/>
+        <Label Content="Счётчик цикла Ip" HorizontalAlignment="Left" Height="31" Margin="23,57,0,0" VerticalAlignment="Top" Width="377"/>
+        <Label Content="Коэффициент поддатливости зубьев ремня e" HorizontalAlignment="Left" Height="32" Margin="23,150,0,0" VerticalAlignment="Top" Width="377"/>
+        <Label Content="Поправка на шаг шкива del_tk" HorizontalAlignment="Left" Height="26" Margin="23,182,0,0" VerticalAlignment="Top" Width="377"/>
+        <Label Content="Высота зуба ремня h" HorizontalAlignment="Left" Height="25" Margin="23,213,0,0" VerticalAlignment="Top" Width="377"/>
+        <Label Content="Модуль ремня m" HorizontalAlignment="Left" Height="26" Margin="23,238,0,0" VerticalAlignment="Top" Width="377"/>
+        <Label Content="Мощность, передаваемая ремнём N" HorizontalAlignment="Left" Height="31" Margin="23,269,0,0" VerticalAlignment="Top" Width="377"/>
+        <Label Content="Расстояние от впадины зуба ремня &#xD;&#xA;до оси металлического троса bo" HorizontalAlignment="Left" Height="42" Margin="23,300,0,0" VerticalAlignment="Top" Width="377"/>
+        <Label Content="Ширина ремня br" HorizontalAlignment="Left" Height="32" Margin="23,347,0,0" VerticalAlignment="Top" Width="377"/>
+        <Label Content="Коэффициент ширины ремня PsiP" HorizontalAlignment="Left" Height="29" Margin="23,379,0,0" VerticalAlignment="Top" Width="377"/>
+        <Label Content="Коэффициент продольной поддатливости ремня Ip" HorizontalAlignment="Left" Height="29" Margin="23,413,0,0" VerticalAlignment="Top" Width="377"/>
+        <Label Content="Линейная плотность ремня, шириной 1мм q" HorizontalAlignment="Left" Height="32" Margin="23,447,0,0" VerticalAlignment="Top" Width="377"/>
+        <Label Content="Число зубьев ремня, находящихся в зацеплении&#xD;&#xA;с меньшим шкивом z0" HorizontalAlignment="Left" Height="44" Margin="23,479,0,0" VerticalAlignment="Top" Width="377"/>
+        <Label Content="Передаточное число u" HorizontalAlignment="Left" Height="27" Margin="23,528,0,0" VerticalAlignment="Top" Width="377"/>
+        <Label Content="Расстояние между осями шкивов a" HorizontalAlignment="Left" Height="28" Margin="23,560,0,0" VerticalAlignment="Top" Width="377"/>
+        <Label Content="Тип троса TrType" HorizontalAlignment="Left" Height="28" Margin="23,593,0,0" VerticalAlignment="Top" Width="377"/>
+        <Label Content="Код первой детали CodeDet1" HorizontalAlignment="Left" Height="31" Margin="23,621,0,0" VerticalAlignment="Top" Width="377"/>
+        <Label Content="Название первой детали NameDet1" HorizontalAlignment="Left" Height="33" Margin="23,652,0,0" VerticalAlignment="Top" Width="377"/>
+        <Label Content="Угол между точкой сбега ремня со шкива и &#xD;&#xA;точкой их касания по наружному диаметру b" HorizontalAlignment="Left" Height="43" Margin="22,677,0,0" VerticalAlignment="Top" Width="378"/>
+        <Label Content="Угол  падины y" HorizontalAlignment="Left" Height="31" Margin="23,725,0,0" VerticalAlignment="Top" Width="377"/>
+        <Label Content="Частота вращения меньшего шкива n1" HorizontalAlignment="Left" Height="34" Margin="22,756,0,0" VerticalAlignment="Top" Width="422"/>
+        <Label Content="Наружный диаметр шкива da1" HorizontalAlignment="Left" Height="36" Margin="22,790,0,0" VerticalAlignment="Top" Width="422"/>
+        <Label Content="Число зубьев меньшего шкива z1" HorizontalAlignment="Left" Height="25" Margin="23,826,0,0" VerticalAlignment="Top" Width="421"/>
+        <Label Content="Поправка на диаметр шкива C1" HorizontalAlignment="Left" Height="29" Margin="23,856,0,0" VerticalAlignment="Top" Width="421"/>
+        <Label Content="Угол обхвата на меньшем шкиве a1" HorizontalAlignment="Left" Height="29" Margin="23,890,0,0" VerticalAlignment="Top" Width="421"/>
+        <Label Content="Код второй детали CodeDet2" HorizontalAlignment="Left" Height="32" Margin="23,919,0,0" VerticalAlignment="Top" Width="377"/>
+        <Label Content="Название второй детали NameDet2" HorizontalAlignment="Left" Height="34" Margin="23,951,0,0" VerticalAlignment="Top" Width="377"/>
+        <Label Content="Число зубьев большего шкива z2" HorizontalAlignment="Left" Height="30" Margin="23,985,0,0" VerticalAlignment="Top" Width="377"/>
+        <Label Content="Частота вращения большего шкива n2" HorizontalAlignment="Left" Height="29" Margin="23,1020,0,0" VerticalAlignment="Top" Width="377"/>
+        <Label Content="Предельно допустимая окружная сила F pred." HorizontalAlignment="Left" Height="35" Margin="22,1054,0,0" VerticalAlignment="Top" Width="378"/>
+        <Label Content="Рабочая нагрузка передаваемая ремнём F okr" HorizontalAlignment="Left" Height="28" Margin="22,1089,0,0" VerticalAlignment="Top" Width="378"/>
+        <Label Content="Отклонение F pred от F okr" HorizontalAlignment="Left" Height="29" Margin="23,1117,0,0" VerticalAlignment="Top" Width="377"/>
+        <Label Content="Вывод" HorizontalAlignment="Left" Height="23" Margin="22,1151,0,0" VerticalAlignment="Top" Width="378"/>
+        <Label x:Name="DostLabel" Content="1" HorizontalAlignment="Left" Height="23" Margin="400,1151,0,0" VerticalAlignment="Top" Width="200"/>
+        <Button x:Name="CloseButton" Content="Закрыть" HorizontalAlignment="Left" Height="31" Margin="649,1187,0,0" VerticalAlignment="Top" Width="118" Click="CloseButton_Click"/>
 
     </Grid>
 </Window>
